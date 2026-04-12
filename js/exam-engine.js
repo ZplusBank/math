@@ -680,10 +680,14 @@ const app = {
         return `<img class="subject-icon-image" data-src="${src}" alt="${alt}" loading="lazy" decoding="async" data-sid="${sid}">`;
     },
 
-    _loadSubjectIconImage(img) {
+    _loadSubjectIconImage(img, prioritize = false) {
         if (!img || img.dataset.loaded === '1') return;
         const src = img.getAttribute('data-src');
         if (!src) return;
+        if (prioritize) {
+            img.loading = 'eager';
+            img.fetchPriority = 'high';
+        }
         img.dataset.loaded = '1';
         img.src = src;
     },
@@ -699,6 +703,15 @@ const app = {
             return;
         }
 
+        const isPhoneViewport = window.matchMedia('(max-width: 768px)').matches;
+        const eagerCount = isPhoneViewport ? 8 : 3;
+
+        iconImages.forEach((img, index) => {
+            if (index < eagerCount) {
+                this._loadSubjectIconImage(img, true);
+            }
+        });
+
         if (this._subjectIconObserver) {
             this._subjectIconObserver.disconnect();
         }
@@ -712,11 +725,15 @@ const app = {
             });
         }, {
             root: null,
-            rootMargin: '180px 0px',
+            rootMargin: isPhoneViewport ? '420px 0px' : '220px 0px',
             threshold: 0.01,
         });
 
-        iconImages.forEach((img) => this._subjectIconObserver.observe(img));
+        iconImages.forEach((img, index) => {
+            if (index >= eagerCount && img.dataset.loaded !== '1') {
+                this._subjectIconObserver.observe(img);
+            }
+        });
     },
 
     showSubjectsView() {
