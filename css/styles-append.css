@@ -1,0 +1,159 @@
+/* ============= Lightbox (Image Preview) ============= */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 2147483647;
+    /* Max z-index to ensure it's on top */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.lightbox-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    transition: transform 0.1s ease-out;
+    /* Smooth zoom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2147483648;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 4px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    cursor: grab;
+    transition: transform 0.1s ease-out;
+}
+
+.lightbox-image:active {
+    cursor: grabbing;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.1s ease;
+    z-index: 2147483649;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.lightbox-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+    z-index: 2147483649;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.lightbox-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 4px;
+    border-radius: 4px;
+    transition: transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Make images in content clickable */
+.content-image {
+    cursor: zoom-in;
+    transition: transform 0.1s ease;
+}
+
+.content-image:hover {
+    transform: scale(1.02);
+}
+
+/* ============= Lightbox Mobile Enhancements ============= */
+@media (max-width: 768px) {
+    .lightbox-overlay {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .lightbox-content {
+        max-width: 98%;
+        max-height: 85vh;
+    }
+
+    .lightbox-image {
+        max-height: 80vh;
+        border-radius: 2px;
+    }
+
+    .lightbox-close {
+        top: 12px;
+        right: 12px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.6rem;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-controls {
+        bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+        padding: 10px 20px;
+        gap: 20px;
+        border-radius: 24px;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-btn {
+        font-size: 1.4rem;
+        padding: 8px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .content-image:hover {
+        transform: none;
+    }
+}

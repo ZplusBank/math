@@ -1,0 +1,9 @@
+[
+  {
+    "id": "Statistics",
+    "name": "Statistics",
+    "path": "data/Statistics",
+    "description": "Introduction to Statistics",
+    "icon": "data/Statistics/icon.png"
+  }
+]

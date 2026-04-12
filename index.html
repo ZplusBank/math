@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J49BRJMLT0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J49BRJMLT0');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Interactive exam system for Java 2 - Objects and Classes">
+    <title>Exam System</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Critical: Inline theme detection to prevent FOUC -->
+    <script>
+        (function () {
+            var t = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+
+    <!-- DNS prefetch for all CDN domains -->
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Critical CSS (preloaded) -->
+    <link rel="preload" href="css/exam-styles.css" as="style" fetchpriority="high">
+    <link rel="stylesheet" href="css/exam-styles.css">
+
+    <!-- Google Fonts: Non-blocking, reduced weight set -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@400;600;700;900&display=swap">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@400;600;700;900&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@400;600;700;900&display=swap">
+    </noscript>
+
+    <!-- Prism.js Theme (non-blocking — only needed when code is visible) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.min.css" media="print"
+        onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.css"
+        media="print" onload="this.media='all'">
+
+    <!-- Preload critical JS -->
+    <link rel="preload" href="js/lib-loader.js" as="script">
+    <link rel="preload" href="js/exam-config.js" as="script">
+    <link rel="preload" href="js/exam-engine.js" as="script">
+
+    <!-- MathJax config (just config object — no blocking script) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                packages: { '[+]': ['mhchem'] }
+            },
+            svg: {
+                fontCache: 'global'
+            },
+            loader: { load: ['[tex]/mhchem'] },
+            startup: { typeset: false }
+        };
+    </script>
+</head>
+
+<body>
+
+    <!-- Floating Lines Background -->
+    <div id="floatingLinesBg" aria-hidden="true"
+        style="position:fixed;inset:0;z-index:-1;pointer-events:auto;mix-blend-mode:screen;"></div>
+
+    <div class="container">
+        <header role="banner">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1><span class="logo-mark" onclick="app.handleHomeClick()" style="cursor: pointer;"
+                            title="Go to Home">Z+</span> Mathematics</h1>
+                    <p>Master your skills with interactive exams</p>
+                </div>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <main id="main-content">
+
+            <!-- SUBJECTS VIEW -->
+            <div class="subjects-view" id="subjectsView">
+                <a href="https://zplusbank.github.io" class="back-home-btn">
+                    <span class="btn-icon">←</span>
+                    Back to Home
+                </a>
+
+                <!-- Search Subjects -->
+                <div class="search-container">
+                    <input type="text" class="search-input" id="subjectSearch" placeholder="Search subjects..."
+                        autocomplete="off" aria-label="Search subjects">
+                    <span class="search-icon">🔍</span>
+                    <button class="search-clear" id="subjectSearchClear" style="display: none;"
+                        aria-label="Clear search" onclick="app.clearSearch('subject')">✕</button>
+                </div>
+
+                <div class="subjects-grid" id="subjectsGrid">
+                    <!-- Subjects will be generated here -->
+                </div>
+                <div class="search-no-results" id="subjectNoResults">
+                    No subjects match your search.
+                </div>
+            </div>
+
+            <!-- CHAPTERS VIEW -->
+            <div class="chapters-view" id="chaptersView">
+                <button class="back-button" onclick="app.goBackToSubjects()">← Back to Subjects</button>
+                <h2 style="color: var(--text-main); margin-bottom: 20px;">Select Chapters</h2>
+
+                <!-- Search Chapters -->
+                <div class="search-container">
+                    <input type="text" class="search-input" id="chapterSearch" placeholder="Search chapters..."
+                        autocomplete="off" aria-label="Search chapters">
+                    <span class="search-icon">🔍</span>
+                    <button class="search-clear" id="chapterSearchClear" style="display: none;"
+                        aria-label="Clear search" onclick="app.clearSearch('chapter')">✕</button>
+                </div>
+
+                <div class="chapters-actions">
+                    <button class="action-btn" id="selectAllBtn" onclick="app.selectAllChapters()">
+                        ✓ Select All
+                    </button>
+                    <button class="action-btn" id="selectNoneBtn" onclick="app.selectNoneChapters()">
+                        ✕ Select None
+                    </button>
+                </div>
+
+                <div class="chapters-grid" id="chaptersGrid">
+                    <!-- Chapters will be generated here -->
+                </div>
+                <div class="search-no-results" id="chapterNoResults">
+                    No chapters match your search.
+                </div>
+                <button class="start-exam-btn" id="startExamBtn" onclick="app.startExam()" disabled>
+                    Start Exam
+                </button>
+            </div>
+
+            <!-- EXAM VIEW -->
+            <div class="exam-view" id="examView">
+                <div class="exam-header">
+                    <div class="exam-header-left">
+                        <button class="exit-btn" onclick="app.confirmExit()" title="Exit Exam">✕ Exit</button>
+                        <div class="exam-title" id="examTitle"></div>
+                    </div>
+                    <div class="question-counter">
+                        <span id="currentQuestion">1</span> / <span id="totalQuestions">0</span>
+                    </div>
+                </div>
+
+                <div class="question-numbers" id="questionNumbers">
+                    <!-- Question numbers will be generated here -->
+                </div>
+
+                <div class="progress-indicator">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="examProgressBar" style="width: 0%;"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="answeredCount">0</span> / <span id="totalAnswerable">0</span> answered
+                    </div>
+                </div>
+
+                <div class="question-container" id="questionContainer">
+                    <!-- Question will be rendered here -->
+                </div>
+
+                <div class="feedback" id="feedback"></div>
+
+                <div class="exam-controls">
+                    <div class="group-btns">
+                        <button class="nav-btn" id="prevBtn" onclick="app.previousQuestion()" disabled
+                            aria-label="Previous question">
+                            <span aria-hidden="true">←</span> Previous
+                        </button>
+                        <button class="nav-btn" id="nextBtn" onclick="app.nextQuestion()" aria-label="Next question">
+                            Next <span aria-hidden="true">→</span>
+                        </button>
+                    </div>
+                    <button class="check-btn" id="checkBtn" onclick="app.checkAnswer()">Check Answer</button>
+                    <button class="submit-btn" id="submitBtn" onclick="app.showReviewModal()" style="display: none;">
+                        📋 Review & Submit
+                    </button>
+                </div>
+            </div>
+
+            <!-- RESULTS VIEW -->
+            <div class="results-view" id="resultsView">
+                <div class="results-title">Exam Results</div>
+
+                <!-- Score Ring -->
+                <div class="score-ring-wrapper">
+                    <svg class="score-ring" viewBox="0 0 140 140">
+                        <defs>
+                            <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop id="scoreGradientStart" offset="0%" style="stop-color: #6366f1" />
+                                <stop id="scoreGradientEnd" offset="100%" style="stop-color: #8b5cf6" />
+                            </linearGradient>
+                        </defs>
+                        <circle class="score-ring-bg" cx="70" cy="70" r="65" />
+                        <circle class="score-ring-progress" id="scoreRingProgress" cx="70" cy="70" r="65" />
+                    </svg>
+                    <div class="score-ring-text score-summary">
+                        <div class="score-grade" id="scoreGrade">F</div>
+                        <div class="score-percentage" id="scorePercentage">0%</div>
+                    </div>
+                </div>
+
+                <div class="score" id="scoreDisplay"></div>
+                <div class="score-text" id="scoreText"></div>
+
+                <div class="result-details" id="resultDetails">
+                    <!-- Stats bar & question review cards injected by JS -->
+                </div>
+
+                <button class="restart-btn" onclick="app.restart()">Take Another Exam</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- 3rd-party libs loaded on-demand by LibLoader (zero TBT at page load) -->
+    <!-- Marked.js, Prism.js, MathJax all lazy-loaded when exam starts -->
+
+    <!-- Core app scripts (lightweight — no heavy 3rd-party deps at load time) -->
+    <script src="js/lib-loader.js" defer></script>
+    <script src="js/exam-config.js" defer></script>
+    <script src="js/content-renderer.js" defer></script>
+    <script src="js/diagram-handler.js" defer></script>
+    <script src="js/exam-engine.js" defer></script>
+
+    <!-- Three.js + Floating Lines Background (lazy-loaded after idle) -->
+    <script>
+        // Defer heavy WebGL background until after first paint + idle time
+        function _initFloatingLines() {
+            var s = document.createElement('script');
+            s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+            s.onload = function () {
+                var s2 = document.createElement('script');
+                s2.src = 'js/floating-lines.js';
+                document.body.appendChild(s2);
+            };
+            document.body.appendChild(s);
+        }
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(_initFloatingLines, { timeout: 3000 });
+        } else {
+            setTimeout(_initFloatingLines, 1000);
+        }
+    </script>
+
+    <script>
+        // Close menus/popups with Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.open, .dropdown.open, .menu.open').forEach(function (el) { el.classList.remove('open'); });
+            }
+        });
+
+        // Mobile swipe navigation for exam questions
+        (function () {
+            var touchStartX = 0, touchStartY = 0, touchEndX = 0, touchEndY = 0;
+            var minSwipe = 60, maxVertical = 100;
+
+            document.addEventListener('touchstart', function (e) {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+
+            document.addEventListener('touchend', function (e) {
+                touchEndX = e.changedTouches[0].screenX;
+                touchEndY = e.changedTouches[0].screenY;
+                var dx = touchEndX - touchStartX;
+                var dy = Math.abs(touchEndY - touchStartY);
+                if (window.innerWidth <= 768) return; // Disable swipe on phones
+                if (dy > maxVertical) return; // Ignore vertical swipes
+                var examView = document.getElementById('examView');
+                if (!examView || examView.style.display === 'none') return;
+                // Don't swipe if touching code blocks or scrollable areas
+                if (e.target.closest && (e.target.closest('.code-block-wrapper') || e.target.closest('.question-numbers'))) return;
+                if (dx > minSwipe && typeof app !== 'undefined' && app.previousQuestion) {
+                    app.previousQuestion();
+                } else if (dx < -minSwipe && typeof app !== 'undefined' && app.nextQuestion) {
+                    app.nextQuestion();
+                }
+            }, { passive: true });
+        })();
+    </script>
+
+    <!-- General Purpose Modal -->
+    <div id="appModal" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Notification</h3>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" id="modalCancelBtn" style="display: none;">Cancel</button>
+                <button class="btn-confirm" id="modalConfirmBtn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="spinner-container">
+            <div class="spinner"></div>
+            <p class="loading-text">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Keyboard Shortcuts Help -->
+    <button id="keyboardHelpBtn" class="keyboard-help-btn" title="Keyboard Shortcuts (?)"
+        aria-label="Show keyboard shortcuts">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="6" width="20" height="12" rx="2" />
+            <path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h8M18 14h.01" />
+        </svg>
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn" title="Scroll to top" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+    <div id="keyboardHelp" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true">
+        <div class="modal keyboard-help-modal">
+            <div class="modal-header">
+                <h3>⌨️ Keyboard Shortcuts</h3>
+            </div>
+            <div class="modal-body">
+                <div class="shortcut-list">
+                    <div class="shortcut-item">
+                        <kbd>←</kbd><kbd>→</kbd>
+                        <span>Navigate questions</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>Enter</kbd>
+                        <span>Check answer / Next</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>A</kbd><kbd>B</kbd><kbd>C</kbd><kbd>D</kbd>
+                        <span>Select answer</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>Esc</kbd>
+                        <span>Close modals</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>?</kbd>
+                        <span>Show this help</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-confirm" onclick="app.closeKeyboardHelp()">Got it!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us Button -->
+    <button id="contactBtn" class="contact-btn" title="Contact Us" aria-label="Contact Us">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+        </svg>
+    </button>
+
+    <!-- Contact Us Modal -->
+    <div id="contactModal" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true">
+        <div class="modal contact-modal">
+            <div class="modal-header">
+                <h3 id="contactModalTitle">📞 Contact Us</h3>
+            </div>
+            <div class="modal-body">
+                <p id="contactModalMessage">If there is any wrong questions or any problem with the site, please contact
+                    us :</p>
+                <!-- Facebook contact card (commented out)
+                <div class="contact-info">
+                    <a href="https://web.facebook.com/profile.php?id=61573369235218&_rdc=1&_rdr#" target="_blank"
+                        rel="noopener noreferrer" class="contact-card contact-card-link">
+                        <span class="contact-icon">📘</span>
+                        <div class="contact-details">
+                            <span class="contact-name">Z+</span>
+                            <span class="contact-phone">Facebook Page</span>
+                        </div>
+                        <span class="contact-arrow">→</span>
+                    </a>
+                </div>
+                -->
+                <div class="contact-cards-grid">
+                    <a href="https://wa.me/962790213674" target="_blank" rel="noopener noreferrer"
+                        class="wa-contact-card">
+                        <div class="wa-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                fill="#25D366">
+                                <path
+                                    d="M16.004 0C7.163 0 0 7.163 0 16.004c0 2.823.737 5.576 2.137 8.003L0 32l8.188-2.088A15.94 15.94 0 0016.004 32C24.837 32 32 24.837 32 16.004 32 7.163 24.837 0 16.004 0zm0 29.18a13.12 13.12 0 01-6.867-1.932l-.492-.293-4.862 1.24 1.297-4.729-.322-.512A13.1 13.1 0 012.82 16.004c0-7.27 5.914-13.184 13.184-13.184 7.27 0 13.176 5.914 13.176 13.184 0 7.27-5.906 13.176-13.176 13.176zm7.23-9.871c-.396-.199-2.344-1.156-2.707-1.289-.363-.132-.628-.199-.893.199-.264.396-1.024 1.289-1.256 1.553-.231.265-.463.298-.858.1-.396-.199-1.672-.616-3.184-1.963-1.177-1.048-1.971-2.344-2.203-2.74-.231-.396-.025-.61.174-.808.179-.178.396-.463.594-.694.199-.231.265-.396.396-.66.132-.265.066-.496-.033-.694-.1-.199-.893-2.152-1.223-2.947-.322-.773-.649-.668-.893-.681-.231-.012-.496-.015-.76-.015s-.694.1-1.057.496c-.363.396-1.387 1.355-1.387 3.305s1.42 3.834 1.619 4.099c.199.264 2.795 4.267 6.773 5.982.947.408 1.686.652 2.262.835.951.302 1.815.259 2.498.157.762-.113 2.344-.958 2.674-1.883.33-.926.33-1.719.231-1.883-.1-.166-.363-.265-.76-.463z" />
+                            </svg>
+                        </div>
+                        <span class="wa-card-name">Nizar Khattab</span>
+                        <span class="wa-card-label">Chat on WhatsApp</span>
+                    </a>
+                    <a href="https://wa.me/962786495759" target="_blank" rel="noopener noreferrer"
+                        class="wa-contact-card">
+                        <div class="wa-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                fill="#25D366">
+                                <path
+                                    d="M16.004 0C7.163 0 0 7.163 0 16.004c0 2.823.737 5.576 2.137 8.003L0 32l8.188-2.088A15.94 15.94 0 0016.004 32C24.837 32 32 24.837 32 16.004 32 7.163 24.837 0 16.004 0zm0 29.18a13.12 13.12 0 01-6.867-1.932l-.492-.293-4.862 1.24 1.297-4.729-.322-.512A13.1 13.1 0 012.82 16.004c0-7.27 5.914-13.184 13.184-13.184 7.27 0 13.176 5.914 13.176 13.184 0 7.27-5.906 13.176-13.176 13.176zm7.23-9.871c-.396-.199-2.344-1.156-2.707-1.289-.363-.132-.628-.199-.893.199-.264.396-1.024 1.289-1.256 1.553-.231.265-.463.298-.858.1-.396-.199-1.672-.616-3.184-1.963-1.177-1.048-1.971-2.344-2.203-2.74-.231-.396-.025-.61.174-.808.179-.178.396-.463.594-.694.199-.231.265-.396.396-.66.132-.265.066-.496-.033-.694-.1-.199-.893-2.152-1.223-2.947-.322-.773-.649-.668-.893-.681-.231-.012-.496-.015-.76-.015s-.694.1-1.057.496c-.363.396-1.387 1.355-1.387 3.305s1.42 3.834 1.619 4.099c.199.264 2.795 4.267 6.773 5.982.947.408 1.686.652 2.262.835.951.302 1.815.259 2.498.157.762-.113 2.344-.958 2.674-1.883.33-.926.33-1.719.231-1.883-.1-.166-.363-.265-.76-.463z" />
+                            </svg>
+                        </div>
+                        <span class="wa-card-name">Ayham Al-Azzam</span>
+                        <span class="wa-card-label">Chat on WhatsApp</span>
+                    </a>
+                    <a href="https://wa.me/962796841615" target="_blank" rel="noopener noreferrer"
+                        class="wa-contact-card">
+                        <div class="wa-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                fill="#25D366">
+                                <path
+                                    d="M16.004 0C7.163 0 0 7.163 0 16.004c0 2.823.737 5.576 2.137 8.003L0 32l8.188-2.088A15.94 15.94 0 0016.004 32C24.837 32 32 24.837 32 16.004 32 7.163 24.837 0 16.004 0zm0 29.18a13.12 13.12 0 01-6.867-1.932l-.492-.293-4.862 1.24 1.297-4.729-.322-.512A13.1 13.1 0 012.82 16.004c0-7.27 5.914-13.184 13.184-13.184 7.27 0 13.176 5.914 13.176 13.184 0 7.27-5.906 13.176-13.176 13.176zm7.23-9.871c-.396-.199-2.344-1.156-2.707-1.289-.363-.132-.628-.199-.893.199-.264.396-1.024 1.289-1.256 1.553-.231.265-.463.298-.858.1-.396-.199-1.672-.616-3.184-1.963-1.177-1.048-1.971-2.344-2.203-2.74-.231-.396-.025-.61.174-.808.179-.178.396-.463.594-.694.199-.231.265-.396.396-.66.132-.265.066-.496-.033-.694-.1-.199-.893-2.152-1.223-2.947-.322-.773-.649-.668-.893-.681-.231-.012-.496-.015-.76-.015s-.694.1-1.057.496c-.363.396-1.387 1.355-1.387 3.305s1.42 3.834 1.619 4.099c.199.264 2.795 4.267 6.773 5.982.947.408 1.686.652 2.262.835.951.302 1.815.259 2.498.157.762-.113 2.344-.958 2.674-1.883.33-.926.33-1.719.231-1.883-.1-.166-.363-.265-.76-.463z" />
+                            </svg>
+                        </div>
+                        <span class="wa-card-name">Mohamad Saif</span>
+                        <span class="wa-card-label">Chat on WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer contact-modal-footer">
+                <button class="btn-translate" id="contactTranslateBtn" onclick="toggleContactLang()">
+                    🌐 العربية
+                </button>
+                <button class="btn-confirm contact-close-btn" onclick="closeContactModal()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Contact modal logic
+        let contactLang = 'en';
+
+        document.getElementById('contactBtn').addEventListener('click', function () {
+            document.getElementById('contactModal').style.display = 'flex';
+        });
+
+        function closeContactModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        document.getElementById('contactModal').addEventListener('click', function (e) {
+            if (e.target.id === 'contactModal') closeContactModal();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeContactModal();
+        });
+
+        function toggleContactLang() {
+            const title = document.getElementById('contactModalTitle');
+            const message = document.getElementById('contactModalMessage');
+            const btn = document.getElementById('contactTranslateBtn');
+            const modal = document.querySelector('.contact-modal');
+
+            if (contactLang === 'en') {
+                contactLang = 'ar';
+                title.textContent = '📞 تواصل معنا';
+                message.textContent = 'إذا كان هناك أي أسئلة خاطئة أو أي مشكلة في الموقع او اي اقتراح، يرجى التواصل معنا :';
+                btn.textContent = '🌐 English';
+                modal.setAttribute('dir', 'rtl');
+                modal.style.textAlign = 'right';
+            } else {
+                contactLang = 'en';
+                title.textContent = '📞 Contact Us';
+                message.textContent = 'If there is any wrong questions or any problem with the site or any suggestion, please contact us :';
+                btn.textContent = '🌐 العربية';
+                modal.setAttribute('dir', 'ltr');
+                modal.style.textAlign = 'left';
+            }
+        }
+    </script>
+</body>
+
+</html>

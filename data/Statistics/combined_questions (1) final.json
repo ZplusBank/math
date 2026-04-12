@@ -1,0 +1,2846 @@
+{
+  "title": "Final",
+  "timestamp": 1776001894791,
+  "totalQuestions": 91,
+  "questions": [
+    {
+      "id": "extract-1776000782830-uktmy-0",
+      "number": "1",
+      "text": "If the percentage of smokers in a certain population is 20%. A sample of (64) person was selected. Find the probability that the proportion of smokers in the sample was less than 17%.",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.1587"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.4207"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.3446"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.2743"
+        }
+      ],
+      "inputName": "Q0",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "1. Identify the given parameters: Population proportion \\( p = 0.20 \\), sample size \\( n = 64 \\).\n2. Calculate the standard error of the sample proportion: \\( \\sigma_{\\hat{p}} = \\sqrt{\\frac{p(1-p)}{n}} = \\sqrt{\\frac{0.20 \\times 0.80}{64}} = \\sqrt{\\frac{0.16}{64}} = \\frac{0.4}{8} = 0.05 \\).\n3. Calculate the z-score for the sample proportion \\( \\hat{p} = 0.17 \\):\n\\( z = \\frac{\\hat{p} - p}{\\sigma_{\\hat{p}}} = \\frac{0.17 - 0.20}{0.05} = \\frac{-0.03}{0.05} = -0.6 \\).\n4. Find the probability using the standard normal distribution table: \\( P(Z < -0.6) = 0.2743 \\)."
+    },
+    {
+      "id": "extract-1776000782830-uktmy-1",
+      "number": "2",
+      "text": "X is a discrete random variable takes the values 0, 1 and 2 such that \\( P(X=0)=0.2 \\), \\( P(X=1)=0.7 \\) and \\( P(X=2)=0.1 \\). Find the mean of X.",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.9"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.8"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "1.2"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "1.1"
+        }
+      ],
+      "inputName": "Q1",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "The mean (expected value) of a discrete random variable is calculated as \\( \\mu = \\sum x \\cdot P(X=x) \\).\n\n\\( \\mu = (0 \\times 0.2) + (1 \\times 0.7) + (2 \\times 0.1) \\)\n\\( \\mu = 0 + 0.7 + 0.2 = 0.9 \\)."
+    },
+    {
+      "id": "extract-1776000782830-uktmy-2",
+      "number": "3",
+      "text": "Find the sample mean for the following sample data: 8, 5, 6, 13, 17, 15, 25.",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "11.8571"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "12.1429"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "12.4286"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "12.7143"
+        }
+      ],
+      "inputName": "Q2",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "The sample mean \\( \\bar{x} \\) is the sum of all data points divided by the number of points (n).\n\nSum = \\( 8 + 5 + 6 + 13 + 17 + 15 + 25 = 89 \\)\n\\( n = 7 \\)\nMean = \\( 89 / 7 \\approx 12.714285... \\)\nRounded to four decimal places, the mean is 12.7143."
+    },
+    {
+      "id": "extract-1776000782830-uktmy-3",
+      "number": "4",
+      "text": "If \\( X \\sim N(80, 32) \\) and the distribution of the sample means \\( (\\bar{x}) \\) for samples of size \\( n \\) is \\( N(80, 8) \\). Find \\( n \\).",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "\\( n = 4 \\)"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "\\( n = 8 \\)"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "\\( n = 16 \\)"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "\\( n = 2 \\)"
+        }
+      ],
+      "inputName": "Q3",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "The variance of the distribution of the sample mean \\( \\bar{x} \\) is given by \\( \\sigma_{\\bar{x}}^2 = \\frac{\\sigma^2}{n} \\).\n\nGiven:\n- Population variance \\( \\sigma^2 = 32 \\)\n- Sample mean variance \\( \\sigma_{\\bar{x}}^2 = 8 \\)\n\nSetting up the equation:\n\\[ 8 = \\frac{32}{n} \\]\n\\[ n = \\frac{32}{8} = 4 \\]"
+    },
+    {
+      "id": "extract-1776000782830-uktmy-4",
+      "number": "5",
+      "text": "Consider that \\( X \\) is normally distributed, at \\( \\alpha = 0.05 \\), to test \\( H_0: \\mu = 50 \\) vs \\( H_1: \\mu < 50 \\) using a random sample of size \\( n = 25 \\), we found that their sample mean \\( = 57 \\) and their sample standard deviation \\( = 10 \\). Find the value of the test statistic.",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "2.5"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "3.5"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "4"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.5"
+        }
+      ],
+      "inputName": "Q4",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "Since the population standard deviation is unknown, we use the t-test statistic formula:\n\\[ t = \\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}} \\]\n\nGiven values:\n- Sample mean \\( \\bar{x} = 57 \\)\n- Null hypothesis mean \\( \\mu_0 = 50 \\)\n- Sample standard deviation \\( s = 10 \\)\n- Sample size \\( n = 25 \\)\n\nCalculation:\n\\[ t = \\frac{57 - 50}{10 / \\sqrt{25}} = \\frac{7}{10/5} = \\frac{7}{2} = 3.5 \\]"
+    },
+    {
+      "id": "extract-1776000782830-uktmy-5",
+      "number": "6",
+      "text": "A random sample of size \\( n = 16 \\) is taken from a normal distribution which showed that \\( \\bar{x} = 77.5 \\) and \\( S = 5.5 \\). At \\( \\alpha = 0.01 \\), the test statistic (calculated test) for testing \\( H_0: \\mu = 80 \\) vs \\( H_1: \\mu < 80 \\) is equal to:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "6.82"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "3.21"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "-1.82"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "-2.27"
+        }
+      ],
+      "inputName": "Q5",
+      "inputType": "radio",
+      "correctAnswer": "C",
+      "explanation": "Using the t-test statistic formula:\n\\[ t = \\frac{\\bar{x} - \\mu_0}{S / \\sqrt{n}} \\]\n\nGiven values:\n- \\( \\bar{x} = 77.5 \\)\n- \\( \\mu_0 = 80 \\)\n- \\( S = 5.5 \\)\n- \\( n = 16 \\)\n\nCalculation:\n\\[ t = \\frac{77.5 - 80}{5.5 / \\sqrt{16}} = \\frac{-2.5}{5.5 / 4} = \\frac{-2.5}{1.375} \\approx -1.82 \\]"
+    },
+    {
+      "id": "extract-1776000782830-uktmy-6",
+      "number": "7",
+      "text": "Consider that \\( X \\sim \\text{Bin}(2, p) \\) and \\( P(X \\ge 1) = 0.64 \\). Find \\( p \\).",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.5"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.2"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.4"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.6"
+        },
+        {
+          "value": "E",
+          "label": "E",
+          "text": "0.8"
+        }
+      ],
+      "inputName": "Q6",
+      "inputType": "radio",
+      "correctAnswer": "C",
+      "explanation": "Given that \\( X \\sim \\text{Bin}(2, p) \\), the probability of at least one success is:\n\n\\[ P(X \\ge 1) = 1 - P(X = 0) = 0.64 \\]\n\nSolving for \\( P(X = 0) \\):\n\n\\[ P(X = 0) = 1 - 0.64 = 0.36 \\]\n\nUsing the binomial probability formula \\( P(X=k) = \\binom{n}{k} p^k (1-p)^{n-k} \\) for \\( n=2 \\) and \\( k=0 \\):\n\n\\[ P(X = 0) = \\binom{2}{0} p^0 (1-p)^{2-0} = (1-p)^2 \\]\n\nSet the equations equal:\n\n\\[ (1-p)^2 = 0.36 \\]\n\\[ 1-p = \\sqrt{0.36} = 0.6 \\]\n\\[ p = 1 - 0.6 = 0.4 \\]\n\nTherefore, the correct value for \\( p \\) is 0.4."
+    },
+    {
+      "id": "extract-1776000782830-uktmy-7",
+      "number": "8",
+      "text": "The 90% confidence interval for the population proportion \\( P \\) given a sample size \\( n = 64 \\) and sample proportion 0.20 is computed as:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "(0.136, 0.264)"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "(0.118, 0.282)"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "(0.071, 0.329)"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "(0.168, 0.232)"
+        },
+        {
+          "value": "E",
+          "label": "E",
+          "text": "(0.102, 0.298)"
+        }
+      ],
+      "inputName": "Q7",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "To calculate the 90% confidence interval for a proportion, use the formula:\n\n\\[ \\hat{p} \\pm z_{\\alpha/2} \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}} \\]\n\nGiven parameters:\n- Sample proportion \\( \\hat{p} = 0.20 \\)\n- Sample size \\( n = 64 \\)\n- For 90% confidence, \\( z_{0.05} \\approx 1.645 \\)\n\n1. Calculate standard error (SE):\n\\[ SE = \\sqrt{\\frac{0.20 \\times 0.80}{64}} = \\sqrt{\\frac{0.16}{64}} = \\frac{0.4}{8} = 0.05 \\]\n\n2. Calculate margin of error (ME):\n\\[ ME = 1.645 \\times 0.05 = 0.08225 \\]\n\n3. Determine the interval:\n\\[ 0.20 \\pm 0.08225 \\implies (0.11775, 0.28225) \\]\n\nRounding to three decimal places yields (0.118, 0.282)."
+    },
+    {
+      "id": "extract-1776000782830-uktmy-8",
+      "number": "9",
+      "text": "If \\( X \\sim N(80, 32) \\) and the distribution of the sample means (\\( \\bar{x} \\)) for samples of size \\( n \\) is \\( N(80, 8) \\). Find \\( n \\).",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "n = 4"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "n = 8"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "n = 16"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "n = 2"
+        },
+        {
+          "value": "E",
+          "label": "E",
+          "text": "n = 5"
+        }
+      ],
+      "inputName": "Q8",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "In standard notation \\( N(\\mu, \\sigma^2) \\), the second parameter is the variance.\n\nThe variance of the sampling distribution of the mean is defined as:\n\n\\[ \\sigma_{\\bar{x}}^2 = \\frac{\\sigma^2}{n} \\]\n\nGiven the values from the distributions:\n- Population variance \\( \\sigma^2 = 32 \\)\n- Sampling variance \\( \\sigma_{\\bar{x}}^2 = 8 \\)\n\nSubstitute and solve for \\( n \\):\n\n\\[ 8 = \\frac{32}{n} \\]\n\\[ n = \\frac{32}{8} = 4 \\]\n\nThus, the sample size \\( n \\) is 4."
+    },
+    {
+      "id": "extract-1776000782830-uktmy-9",
+      "number": "10",
+      "text": "A and B are independent events such that \\( P(A) = 2P(B) \\) and \\( P(A \\cap B) = 0.18 \\). Find \\( P(B) \\).",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.4"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.2"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.1"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.3"
+        }
+      ],
+      "inputName": "Q9",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "For independent events, \\( P(A \\cap B) = P(A) \\cdot P(B) \\). Substituting the given relationship \\( P(A) = 2P(B) \\), we get \\( 0.18 = (2P(B)) \\cdot P(B) \\), which simplifies to \\( 2P(B)^2 = 0.18 \\). Dividing by 2, we find \\( P(B)^2 = 0.09 \\). Taking the square root gives \\( P(B) = 0.3 \\)."
+    },
+    {
+      "id": "extract-1776000782830-uktmy-10",
+      "number": "11",
+      "text": "If the sum of squares for the deviations of a sample data about the mean = 270, and the sample size = 31. Find the sample standard deviation.",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "3"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "6"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "7"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "4"
+        }
+      ],
+      "inputName": "Q10",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "The sample standard deviation \\( s \\) is calculated using the formula \\( s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n - 1}} \\). Given the sum of squares \\( \\sum (x_i - \\bar{x})^2 = 270 \\) and sample size \\( n = 31 \\), we have: \\n\\( s = \\sqrt{\\frac{270}{31 - 1}} = \\sqrt{\\frac{270}{30}} = \\sqrt{9} = 3 \\)."
+    },
+    {
+      "id": "extract-1776000782830-uktmy-11",
+      "number": "12",
+      "text": "The scores of students in statistics are normally distributed with mean of scores 78 and standard deviation 6. A sample of 4 scores for students was selected. Find the probability that their sample mean is less than 75.",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.3812"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.8413"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.9772"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.1587"
+        }
+      ],
+      "inputName": "Q11",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "First, calculate the standard error of the mean: \\( \\sigma_{\\bar{x}} = \\frac{\\sigma}{\\sqrt{n}} = \\frac{6}{\\sqrt{4}} = 3 \\). \\nNext, calculate the z-score for a sample mean of 75: \\( z = \\frac{\\bar{x} - \\mu}{\\sigma_{\\bar{x}}} = \\frac{75 - 78}{3} = -1 \\). \\nUsing the standard normal distribution table, \\( P(Z < -1) = 0.1587 \\)."
+    },
+    {
+      "id": "extract-1776000782830-uktmy-12",
+      "number": "13",
+      "text": "What is the sample size needed to construct a 95% confidence interval for \\( \\mu \\) with margin error \\( E=0.4 \\) and standard deviation \\( \\sigma=3 \\)?",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "865"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "385"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "217"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "520"
+        }
+      ],
+      "inputName": "Q12",
+      "inputType": "radio",
+      "correctAnswer": "C",
+      "explanation": "To find the sample size \\( n \\) for a population mean, we use the formula:\n\n\\[ n = \\left( \\frac{z_{\\alpha/2} \\cdot \\sigma}{E} \\right)^2 \\]\n\nFor a 95% confidence level, the critical value \\( z_{\\alpha/2} \\) is approximately 1.96. Given \\( \\sigma = 3 \\) and \\( E = 0.4 \\):\n\n\\[ n = \\left( \\frac{1.96 \\cdot 3}{0.4} \\right)^2 = (14.7)^2 = 216.09 \\]\n\nRounding up to the nearest whole number ensures the margin of error is not exceeded, giving \\( n = 217 \\)."
+    },
+    {
+      "id": "extract-1776000782830-uktmy-13",
+      "number": "14",
+      "text": "Consider that \\( P(A)=0.58 \\), \\( P(B)=0.28 \\) and \\( P(A \\cap B)=0.16 \\). Find \\( P(A \\cup B) \\).",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.61"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.70"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.72"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.65"
+        }
+      ],
+      "inputName": "Q13",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "According to the additive rule of probability:\n\n\\[ P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\]\n\nSubstituting the given values:\n\n\\[ P(A \\cup B) = 0.58 + 0.28 - 0.16 = 0.70 \\]"
+    },
+    {
+      "id": "extract-1776000782830-uktmy-14",
+      "number": "15",
+      "text": "Suppose that \\( P(B|A)=0.3 \\) and \\( P(\\bar{A})=0.9 \\). Find \\( P(A \\cap B) \\).",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.03"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.15"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.12"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.18"
+        }
+      ],
+      "inputName": "Q14",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "First, find \\( P(A) \\) using the complement rule:\n\\[ P(A) = 1 - P(\\bar{A}) = 1 - 0.9 = 0.1 \\]\n\nNext, use the definition of conditional probability to find the joint probability:\n\\[ P(A \\cap B) = P(B|A) \\cdot P(A) \\]\n\\[ P(A \\cap B) = 0.3 \\cdot 0.1 = 0.03 \\]"
+    },
+    {
+      "id": "extract-1776000782830-uktmy-15",
+      "number": "16",
+      "text": "If \\( X \\sim N(17, 4) \\), find \\( P(X > 20) \\).",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.0668"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.0082"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.6915"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.3085"
+        }
+      ],
+      "inputName": "Q15",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "First, identify the parameters of the normal distribution: the mean \\( \\mu = 17 \\) and the variance \\( \\sigma^2 = 4 \\). Thus, the standard deviation is \\( \\sigma = \\sqrt{4} = 2 \\). Next, calculate the z-score for \\( X = 20 \\): \\( z = \\frac{20 - 17}{2} = 1.5 \\). We need to find the area to the right: \\( P(Z > 1.5) = 1 - P(Z \\le 1.5) \\). Looking up the value in the standard normal table, \\( P(Z \\le 1.5) = 0.9332 \\). Therefore, \\( P(X > 20) = 1 - 0.9332 = 0.0668 \\)."
+    },
+    {
+      "id": "extract-1776000782830-uktmy-16",
+      "number": "17",
+      "text": "If \\( X \\sim \\text{Bin}(n, 0.36) \\) and the standard deviation of \\( X \\) equals 2.4, find \\( n \\).",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "16"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "49"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "25"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "36"
+        }
+      ],
+      "inputName": "Q16",
+      "inputType": "radio",
+      "correctAnswer": "C",
+      "explanation": "For a binomial distribution, the standard deviation is given by \\( \\sigma = \\sqrt{np(1-p)} \\). Given \\( p = 0.36 \\) and \\( \\sigma = 2.4 \\), we set up the equation: \\( 2.4 = \\sqrt{n(0.36)(1 - 0.36)} \\). Square both sides to solve for \\( n \\): \\( (2.4)^2 = n(0.36)(0.64) \\) which simplifies to \\( 5.76 = 0.2304n \\). Solving for \\( n \\): \\( n = \\frac{5.76}{0.2304} = 25 \\)."
+    },
+    {
+      "id": "extract-1776000782830-uktmy-17",
+      "number": "18",
+      "text": "Find the interquartile range for the data set: 3, 11, 12, 17",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "8"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "7.5"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "9"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "9.5"
+        }
+      ],
+      "inputName": "Q17",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "To find the interquartile range (IQR), calculate the first quartile (\\( Q_1 \\)) and the third quartile (\\( Q_3 \\)). \n1. Find the median of the data set: \\( \\frac{11 + 12}{2} = 11.5 \\).\n2. \\( Q_1 \\) is the median of the lower half {3, 11}: \\( Q_1 = \\frac{3 + 11}{2} = 7 \\).\n3. \\( Q_3 \\) is the median of the upper half {12, 17}: \\( Q_3 = \\frac{12 + 17}{2} = 14.5 \\).\n4. \\( IQR = Q_3 - Q_1 = 14.5 - 7 = 7.5 \\)."
+    },
+    {
+      "id": "extract-1776000782830-uktmy-18",
+      "number": "19",
+      "text": "A 98% confidence interval for the population mean (\\( \\mu \\)) is [23, 37]. Find the sample mean (\\( \\bar{x} \\)).",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "34"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "31"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "29"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "30"
+        }
+      ],
+      "inputName": "Q18",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "The sample mean (\\( \\bar{x} \\)) is the point estimate located exactly at the center of the confidence interval. It is calculated by taking the average of the lower and upper bounds of the interval:\n\n\\[ \\bar{x} = \\frac{\\text{Lower Bound} + \\text{Upper Bound}}{2} \\]\n\\[ \\bar{x} = \\frac{23 + 37}{2} = \\frac{60}{2} = 30 \\]"
+    },
+    {
+      "id": "extract-1776000782830-uktmy-19",
+      "number": "20",
+      "text": "In the testing hypothesis of the population mean (\\( \\mu \\)), a right-tailed test has a test statistic (calculated value) of \\( Z = 3.15 \\). At \\( \\alpha = 0.25 \\), find the critical value.",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.77"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.61"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.84"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.67"
+        }
+      ],
+      "inputName": "Q19",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "For a right-tailed Z-test, the critical value \\( z_{\\alpha} \\) is the value for which the area to the right under the standard normal curve is equal to the significance level \\( \\alpha \\).\n\n1. Given \\( \\alpha = 0.25 \\), the area to the right is 0.25.\n2. The cumulative area from the left is \\( 1 - 0.25 = 0.75 \\).\n3. Looking up a cumulative area of 0.75 in the standard normal distribution table (Z-table), the corresponding Z-score is approximately 0.674.\n\nTherefore, the critical value is 0.67."
+    },
+    {
+      "id": "extract-1776001215446-52opv-0",
+      "number": "21",
+      "text": "A random sample of 15 students at the HU were asked about the number of hours they study for the Statistics final exam. Their answers are: 10, 15, 17, 15, 17, 15, 17, 17, 22, 17, 20, 22, 22, 20, 22. The value of the sample mean for the hours is equal to:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "5"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "3"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "16.8"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "17.87"
+        }
+      ],
+      "inputName": "Q0",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "To find the sample mean (\\(\\bar{x}\\)), sum all the values and divide by the number of students (n=15). \\n\\(\\sum x = 10 + 15 + 17 + 15 + 17 + 15 + 17 + 17 + 22 + 17 + 20 + 22 + 22 + 20 + 22 = 268\\). \\n\\(\\bar{x} = \\frac{268}{15} \\approx 17.866... \\approx 17.87\\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-1",
+      "number": "22",
+      "text": "A random sample of 15 students at the HU were asked about the number of hours they study for the Statistics final exam. Their answers are: 10, 15, 17, 15, 17, 15, 17, 17, 22, 17, 20, 22, 22, 20, 22. The value of the median for the hours is equal to:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "15"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "17"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "20"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "22"
+        }
+      ],
+      "inputName": "Q1",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "First, sort the data: 10, 15, 15, 15, 17, 17, 17, 17, 17, 20, 20, 22, 22, 22, 22. \\nWith \\(n=15\\), the median is the \\(\\frac{15+1}{2} = 8\\)th value. The 8th value in the sorted list is 17."
+    },
+    {
+      "id": "extract-1776001215446-52opv-2",
+      "number": "23",
+      "text": "A random sample of 15 students at the HU were asked about the number of hours they study for the Statistics final exam. Their answers are: 10, 15, 17, 15, 17, 15, 17, 17, 22, 17, 20, 22, 22, 20, 22. The value of the mode for the hours is equal to:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "15"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "17"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "20"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "22"
+        }
+      ],
+      "inputName": "Q2",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "The mode is the value that appears most frequently. \\n10 appears 1 time. \\n15 appears 3 times. \\n17 appears 5 times. \\n20 appears 2 times. \\n22 appears 4 times. \\nSince 17 appears most often, the mode is 17."
+    },
+    {
+      "id": "extract-1776001215446-52opv-3",
+      "number": "24",
+      "text": "A random sample of 15 students at the HU were asked about the number of hours they study for the Statistics final exam. Their answers are: 10, 15, 17, 15, 17, 15, 17, 17, 22, 17, 20, 22, 22, 20, 22. The value of the sample interquartile range (IQR) for the hours is equal to:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "5"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "7"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "1"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "4"
+        }
+      ],
+      "inputName": "Q3",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "Sorted data: 10, 15, 15, 15, 17, 17, 17, 17, 17, 20, 20, 22, 22, 22, 22. \\n\\(Q_1\\) (25th percentile) position: \\(0.25(n+1) = 4\\). The 4th value is 15. \\n\\(Q_3\\) (75th percentile) position: \\(0.75(n+1) = 12\\). The 12th value is 22. \\n\\(IQR = Q_3 - Q_1 = 22 - 15 = 7\\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-4",
+      "number": "25",
+      "text": "Suppose that the mean of a sample of 5 numbers is 4 and the standard deviation is 1. If one number was changed from 4 to 6, then the new standard deviation becomes:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "1.44"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "1.2"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "1.8"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "1.34"
+        }
+      ],
+      "inputName": "Q4",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "Original \\(s = 1, n = 5, \\bar{x} = 4\\). \\nSum of squares around mean: \\(\\sum (x_i - \\bar{x})^2 = (n-1)s^2 = 4 \\times 1^2 = 4\\). \\nRaw sum of squares: \\(\\sum x_i^2 = 4 + n\\bar{x}^2 = 4 + 5(16) = 84\\). \\nChanging 4 to 6: New sum = \\(5 \\times 4 - 4 + 6 = 22\\). New mean = \\(22/5 = 4.4\\). \\nNew \\(\\sum x_i^2 = 84 - 4^2 + 6^2 = 84 - 16 + 36 = 104\\). \\nNew sum of squares around mean: \\(104 - 5(4.4^2) = 104 - 96.8 = 7.2\\). \\nNew variance \\(s^2 = 7.2 / (5-1) = 1.8\\). \\nNew standard deviation \\(s = \\sqrt{1.8} \\approx 1.3416\\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-5",
+      "number": "26",
+      "text": "Suppose that we have two events A and B in a sample space (\\(\\Omega\\)) such that \\(P(A) = 0.4\\), \\(P(B) = 0.25\\) and \\(P(A|B) = 0.75\\). Then the value of \\(P(A \\cup B) =\\)",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.3375"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.1875"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.6500"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.4625"
+        }
+      ],
+      "inputName": "Q5",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "\\(P(A \\cap B) = P(A|B) \\times P(B) = 0.75 \\times 0.25 = 0.1875\\). \\n\\(P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0.4 + 0.25 - 0.1875 = 0.4625\\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-6",
+      "number": "27",
+      "text": "Suppose that we have two independent events A and B in a sample space (\\(\\Omega\\)) such that \\(P(A) = 0.6\\) and \\(P(B) = 0.4\\), then which of the following is correct?",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "\\(P(A \\cap B) = 0\\)"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "\\(P(A \\cup B) = 0.76\\)"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "\\(P(A \\cap B) = 1\\)"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "\\(P(A|B) = 0.4\\)"
+        }
+      ],
+      "inputName": "Q6",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "Since events are independent, \\(P(A \\cap B) = P(A) \\times P(B) = 0.6 \\times 0.4 = 0.24\\). \\n\\(P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0.6 + 0.4 - 0.24 = 0.76\\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-7",
+      "number": "28",
+      "text": "Suppose that we have two events A and B in a sample space (\\(\\Omega\\)) such that \\(P(A) = 0.7\\), \\(P(B) = 0.6\\) and \\(P(A \\cap B) = 0.5\\). Then the value of \\(P(A | \\bar{B}) =\\)",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.167"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.286"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.5"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.7"
+        }
+      ],
+      "inputName": "Q7",
+      "inputType": "radio",
+      "correctAnswer": "C",
+      "explanation": "\\(P(A | \\bar{B}) = \\frac{P(A \\cap \\bar{B})}{P(\\bar{B})} = \\frac{P(A) - P(A \\cap B)}{1 - P(B)} = \\frac{0.7 - 0.5}{1 - 0.6} = \\frac{0.2}{0.4} = 0.5\\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-8",
+      "number": "29",
+      "text": "If for the two events A and B in a sample space (\\(\\Omega\\)) we have \\(P(A \\cap B) = 0\\), then the events A and B are said to be:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "independent"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "mutually exclusive (disjoint)"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "equally likely"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "none of the above"
+        }
+      ],
+      "inputName": "Q8",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "Events are mutually exclusive (disjoint) if they cannot occur at the same time, meaning their intersection has a probability of 0."
+    },
+    {
+      "id": "extract-1776001215446-52opv-9",
+      "number": "30",
+      "text": "An insurance company has collected the following data on the sex and marital status of 300 customers:\n\n| Sex | Single (A) | Married (B) | Divorced (C) | Total |\n| --- | --- | --- | --- | --- |\n| Male (M) | 25 | 125 | 30 | 180 |\n| Female (F) | 50 | 50 | 20 | 120 |\n| Total | 75 | 175 | 50 | 300 |\n\nSuppose that a customer is selected at random from this group, then \\(P(B|M)\\) is equal to:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.25"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.694"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.417"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.583"
+        }
+      ],
+      "inputName": "Q9",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "\\(P(B|M)\\) is the probability the customer is Married (B) given they are Male (M). \\nFrom the table, \\(n(B \\cap M) = 125\\) and \\(n(M) = 180\\). \\n\\(P(B|M) = \\frac{125}{180} \\approx 0.6944...\\)"
+    },
+    {
+      "id": "extract-1776001215446-52opv-10",
+      "number": "31",
+      "text": "Consider the following probability distribution of the random variable X:\n\n| \\( X \\) | 0 | 500 | 1000 | 2000 |\n| --- | --- | --- | --- | --- |\n| \\( P(X=x) \\) | 0.60 | 0.05 | 0.13 | 0.22 |\n\nThen the value of mean, \\(\\mu = E(X)\\), equals to:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "875"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "595"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "645"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "495"
+        }
+      ],
+      "inputName": "Q10",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "\\(E(X) = \\sum x \\cdot P(x) = (0 \\times 0.60) + (500 \\times 0.05) + (1000 \\times 0.13) + (2000 \\times 0.22)\\) \\n\\(= 0 + 25 + 130 + 440 = 595\\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-11",
+      "number": "32",
+      "text": "Which of the following is **not** a property of a binomial experiment?",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "The experiment consists of a sequence of n identical trials."
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "Each outcome can be referred to as a success or a failure."
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "The probabilities of the two outcomes can change from one trial to the next."
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "The trials are independent."
+        }
+      ],
+      "inputName": "Q11",
+      "inputType": "radio",
+      "correctAnswer": "C",
+      "explanation": "In a binomial experiment, the probability of success (p) must remain constant for every trial. If it changes, the experiment is not binomial."
+    },
+    {
+      "id": "extract-1776001215446-52opv-12",
+      "number": "33",
+      "text": "A multiple choice exam consists of 15 questions. Each question has 4 choices. Suppose that a student is answering the exam by guessing, then the expected number of correctly guessed questions is:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "2.81"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "3.75"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "11.25"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "1.68"
+        }
+      ],
+      "inputName": "Q12",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "This follows a binomial distribution with \\(n = 15\\) and \\(p = 1/4 = 0.25\\). \\nThe expected value \\(E(X) = n \\times p = 15 \\times 0.25 = 3.75\\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-13",
+      "number": "34",
+      "text": "Suppose that \\(X \\sim \\text{Binomial}(5, 0.4)\\), then \\(P(2 \\leq X \\leq 4) =\\)",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": ".6528"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": ".6826"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": ".0768"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": ".3456"
+        }
+      ],
+      "inputName": "Q13",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "Calculation: \\(P(X=2) + P(X=3) + P(X=4)\\). \\n\\(P(2) = \\binom{5}{2}(0.4)^2(0.6)^3 = 10(0.16)(0.216) = 0.3456\\) \\n\\(P(3) = \\binom{5}{3}(0.4)^3(0.6)^2 = 10(0.064)(0.36) = 0.2304\\) \\n\\(P(4) = \\binom{5}{4}(0.4)^4(0.6)^1 = 5(0.0256)(0.6) = 0.0768\\) \\n\\(Sum = 0.3456 + 0.2304 + 0.0768 = 0.6528\\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-14",
+      "number": "35",
+      "text": "If \\(X \\sim \\text{Binomial}(50, 0.3)\\), then the approximate value of \\(P(X \\geq 20) =\\)",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.0823"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.8907"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.9177"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.8925"
+        }
+      ],
+      "inputName": "Q14",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "Use normal approximation: \\(\\mu = np = 15, \\sigma = \\sqrt{npq} = \\sqrt{10.5} \\approx 3.24\\). \\nApplying continuity correction: \\(P(X \\geq 19.5)\\). \\n\\(Z = (19.5 - 15) / 3.24 = 1.39\\). \\n\\(P(Z \\geq 1.39) = 1 - P(Z < 1.39) = 1 - 0.9177 = 0.0823\\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-15",
+      "number": "36",
+      "text": "The marks distribution of Biology and Chemistry students at HU are given by the two normal curves below:\n\n**Biology**: \\( \\mu = 63\\% \\), \\( \\sigma = 18\\% \\)\n**Chemistry**: \\( \\mu = 69\\% \\), \\( \\sigma = 5\\% \\)\n\nIf Omar has the same Z-score standing in Biology and Chemistry and his mark in Biology is 74, then what is his mark in Chemistry (approximately)?",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "72.05"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "73"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "74"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "75"
+        }
+      ],
+      "inputName": "Q15",
+      "inputType": "radio",
+      "correctAnswer": "a",
+      "explanation": "Calculate Omar's Z-score in Biology: \\( Z = \\frac{X - \\mu}{\\sigma} = \\frac{74 - 63}{18} = \\frac{11}{18} \\approx 0.6111 \\). Since he has the same Z-score in Chemistry: \\( 0.6111 = \\frac{X - 69}{5} \\). Solving for \\( X \\): \\( X = 69 + (5 \\times 0.6111) = 69 + 3.055 = 72.055 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-16",
+      "number": "37",
+      "text": "Which of the following is not true for a normal distribution?",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "It is unimodal"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "It is symmetrical"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "It is discrete"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "It has a bell-shape"
+        }
+      ],
+      "inputName": "Q16",
+      "inputType": "radio",
+      "correctAnswer": "c",
+      "explanation": "A normal distribution is a continuous probability distribution, not a discrete one."
+    },
+    {
+      "id": "extract-1776001215446-52opv-17",
+      "number": "38",
+      "text": "Let \\( X \\sim N(10, 25) \\), then \\( P(X > 3) = \\)",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "0.3897"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "0.9192"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "0.0808"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "0.6103"
+        }
+      ],
+      "inputName": "Q17",
+      "inputType": "radio",
+      "correctAnswer": "b",
+      "explanation": "Given \\( \\mu = 10 \\) and \\( \\sigma^2 = 25 \\) (so \\( \\sigma = 5 \\)). Convert to Z-score: \\( Z = \\frac{3 - 10}{5} = -1.4 \\). \\( P(X > 3) = P(Z > -1.4) = P(Z < 1.4) \\). Looking at the Z-table, \\( P(Z < 1.4) = 0.9192 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-18",
+      "number": "39",
+      "text": "Suppose that in a Statistics class the lowest 10% must receive F's. If class scores are normally distributed with mean 81.4 and standard deviation 5, then what is the value of the score corresponds to the highest F grade?",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "55"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "75"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "70"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "65"
+        }
+      ],
+      "inputName": "Q18",
+      "inputType": "radio",
+      "correctAnswer": "b",
+      "explanation": "We need to find the 10th percentile. For \\( P(Z < z) = 0.10 \\), \\( z \\approx -1.28 \\). Using \\( X = \\mu + z\\sigma \\): \\( X = 81.4 + (-1.28)(5) = 81.4 - 6.4 = 75 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-19",
+      "number": "40",
+      "text": "The weights of 750 students at HU are normally distributed with mean of 76 kg and standard deviation of 8 kg. The number of students having weights more than 78 kg is equal to:",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "449"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "400"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "328"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "301"
+        }
+      ],
+      "inputName": "Q19",
+      "inputType": "radio",
+      "correctAnswer": "d",
+      "explanation": "Find the Z-score for 78 kg: \\( Z = \\frac{78 - 76}{8} = 0.25 \\). \\( P(Z > 0.25) = 1 - P(Z < 0.25) = 1 - 0.5987 = 0.4013 \\). Number of students = \\( 750 \\times 0.4013 \\approx 301 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-20",
+      "number": "41",
+      "text": "The area of the shaded region under the standard normal curve as shown below is equal to (shaded area between \\( Z = -1.2 \\) and \\( Z = 0.6 \\)):",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "0.1150"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "0.1610"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "0.6106"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "0.7260"
+        }
+      ],
+      "inputName": "Q20",
+      "inputType": "radio",
+      "correctAnswer": "c",
+      "explanation": "Area = \\( P(-1.2 < Z < 0.6) = P(Z < 0.6) - P(Z < -1.2) \\). From Z-table: \\( 0.7257 - 0.1151 = 0.6106 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-21",
+      "number": "42",
+      "text": "For a standard normal distribution, if the area between \\( Z = 0 \\) and \\( Z = 1.30 \\) is 0.4032, while the area between \\( Z = 0 \\) and \\( Z = 1.50 \\) is 0.4332. What is the area between \\( Z = -1.30 \\) and \\( Z = 1.50 \\)?",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "0.0668"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "0.0968"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "0.5"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "0.8364"
+        }
+      ],
+      "inputName": "Q21",
+      "inputType": "radio",
+      "correctAnswer": "d",
+      "explanation": "Area between \\( Z = -1.30 \\) and \\( Z = 1.50 \\) is Area(-1.30 to 0) + Area(0 to 1.50). By symmetry, Area(-1.30 to 0) = Area(0 to 1.30) = 0.4032. Total area = \\( 0.4032 + 0.4332 = 0.8364 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-22",
+      "number": "43",
+      "text": "If \\( X \\sim N(260, 400) \\), then for a random sample of size \\( n = 10 \\), the sampling distribution of \\( \\bar{X} \\) is:",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "N(260, 40)"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "N(260, 20)"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "N(260, 10)"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "N(260, 20/\\sqrt{10})"
+        }
+      ],
+      "inputName": "Q22",
+      "inputType": "radio",
+      "correctAnswer": "a",
+      "explanation": "The mean of the sampling distribution is \\( \\mu_{\\bar{X}} = \\mu = 260 \\). The variance is \\( \\sigma^2_{\\bar{X}} = \\frac{\\sigma^2}{n} = \\frac{400}{10} = 40 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-23",
+      "number": "44",
+      "text": "The sample size needed to estimate a population mean with error 2 units with a 95% confidence interval when the population variance equals 64 is:",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "43"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "61"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "62"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "44"
+        }
+      ],
+      "inputName": "Q23",
+      "inputType": "radio",
+      "correctAnswer": "c",
+      "explanation": "Formula: \\( n = \\left( \\frac{Z_{\\alpha/2} \\cdot \\sigma}{E} \\right)^2 \\). Given \\( E=2 \\), \\( \\sigma=\\sqrt{64}=8 \\), \\( Z_{0.025}=1.96 \\). \\( n = \\left( \\frac{1.96 \\times 8}{2} \\right)^2 = 7.84^2 = 61.46 \\). Rounding up gives 62."
+    },
+    {
+      "id": "extract-1776001215446-52opv-24",
+      "number": "45",
+      "text": "A normally distributed population with 500 elements has a mean of 60 and a standard deviation of 10. The probability that the mean of a random sample of 25 elements taken from this population will be smaller than 56 is equal to:",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "0.2446"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "0.0228"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "0.3708"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "0.0294"
+        }
+      ],
+      "inputName": "Q24",
+      "inputType": "radio",
+      "correctAnswer": "b",
+      "explanation": "The standard error is \\( \\sigma_{\\bar{x}} = \\frac{\\sigma}{\\sqrt{n}} = \\frac{10}{\\sqrt{25}} = 2 \\). Calculate Z-score: \\( Z = \\frac{56 - 60}{2} = -2 \\). \\( P(Z < -2) = 0.0228 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-25",
+      "number": "46",
+      "text": "For a t-distribution with 13 degrees of freedom. Which of the following is the value we get from the t-distribution table in order to construct a 95% confidence interval for the population mean (\\( \\mu \\))?",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "1.771"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "1.782"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "2.160"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "2.179"
+        }
+      ],
+      "inputName": "Q25",
+      "inputType": "radio",
+      "correctAnswer": "c",
+      "explanation": "For a 95% confidence interval, the area in each tail is 0.025. With \\( df = 13 \\), the critical value \\( t_{0.025, 13} = 2.160 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-26",
+      "number": "47",
+      "text": "Suppose that a random sample of size 64 observations has a mean of 30. The population variance is assumed to be 9. The 85.3% confidence interval for the population mean (\\( \\mu \\)) is:",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "(28.369, 31.631)"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "(29.456, 30.544)"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "(29.456, 31.440)"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "(28.560, 31.440)"
+        }
+      ],
+      "inputName": "Q26",
+      "inputType": "radio",
+      "correctAnswer": "b",
+      "explanation": "85.3% confidence interval corresponds to \\( Z_{\\alpha/2} \\) where area is 0.853. \\( \\alpha = 0.147 \\), \\( \\alpha/2 = 0.0735 \\). Looking up the Z-score for \\( 1 - 0.0735 = 0.9265 \\) gives \\( Z \\approx 1.45 \\). Margin of Error \\( E = 1.45 \\times \\frac{3}{\\sqrt{64}} = 1.45 \\times 0.375 = 0.54375 \\). Interval: \\( 30 \\pm 0.544 = (29.456, 30.544) \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-27",
+      "number": "48",
+      "text": "If the 95% confidence interval for the population mean \\( \\mu \\) is (0.33, 0.46), then the value of the margin error (E) is equal to:",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "0.395"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "0.36"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "0.065"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "0.42"
+        }
+      ],
+      "inputName": "Q27",
+      "inputType": "radio",
+      "correctAnswer": "c",
+      "explanation": "Margin of error is half the width of the confidence interval: \\( E = \\frac{0.46 - 0.33}{2} = \\frac{0.13}{2} = 0.065 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-28",
+      "number": "49",
+      "text": "A random sample of size 15 observations was drawn from a normal population. The sample mean and sample standard deviation were computed as \\( \\bar{X} = 14.9 \\) and \\( S = 6.75 \\). What is your decision at the 5% significance level that the population mean is greater than 12?",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "Don't reject \\( H_0 \\) Population mean not greater than 12"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "Reject \\( H_0 \\) Population mean not greater than 12"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "Don't reject \\( H_0 \\) Population mean is greater than 12"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "Reject \\( H_0 \\) Population mean is greater than 12"
+        }
+      ],
+      "inputName": "Q28",
+      "inputType": "radio",
+      "correctAnswer": "a",
+      "explanation": "Test \\( H_0: \\mu \\le 12 \\) vs \\( H_1: \\mu > 12 \\). \\( t = \\frac{14.9 - 12}{6.75/\\sqrt{15}} = \\frac{2.9}{1.7428} = 1.664 \\). Critical \\( t_{0.05, 14} = 1.761 \\). Since \\( 1.664 < 1.761 \\), do not reject \\( H_0 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-29",
+      "number": "50",
+      "text": "Suppose that 20% of the HU students fail Mathematics 131. In a random sample of 200 students taking Mathematics 131, what is the probability that the proportion of those who will fail is less than 0.27?",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": ".0068"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "0.1402"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "0.1325"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": ".9934"
+        }
+      ],
+      "inputName": "Q29",
+      "inputType": "radio",
+      "correctAnswer": "d",
+      "explanation": "Given \\( p = 0.20, n = 200 \\). Standard error \\( σ_{\\hat{p}} = \\sqrt{\\frac{0.2(0.8)}{200}} = 0.02828 \\). \\( Z = \\frac{0.27 - 0.20}{0.02828} \\approx 2.475 \\). \\( P(Z < 2.475) \\approx 0.9934 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-30",
+      "number": "51",
+      "text": "The lower confidence limit of a 95% confidence interval for the population proportion if a random sample of size 200 had 40 successes is equal to:",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "0.2554"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "0.1446"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "0.2465"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "0.1535"
+        }
+      ],
+      "inputName": "Q30",
+      "inputType": "radio",
+      "correctAnswer": "b",
+      "explanation": "Sample proportion \\( \\hat{p} = 40/200 = 0.20 \\). Standard error \\( SE = \\sqrt{\\frac{0.2 \\times 0.8}{200}} = 0.02828 \\). Lower limit = \\( \\hat{p} - 1.96(SE) = 0.20 - 1.96(0.02828) = 0.20 - 0.0554 = 0.1446 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-31",
+      "number": "52",
+      "text": "Suppose that a random sample is taken from a normal population with known variance, then for testing \\( H_0: \\mu = 80 \\) vs \\( H_1: \\mu < 80 \\), the \\( H_0 \\) is rejected at \\( \\alpha = 0.10 \\) if the rejection region is:",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "Z > 1.96"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "Z > -1.65"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "Z < -1.28"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "Z > 1.28"
+        }
+      ],
+      "inputName": "Q31",
+      "inputType": "radio",
+      "correctAnswer": "c",
+      "explanation": "For a left-tailed test at \\( \\alpha = 0.10 \\), the critical value of Z is -1.28. We reject \\( H_0 \\) if the test statistic \\( Z < -1.28 \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-32",
+      "number": "53",
+      "text": "Given the following summary data for two variables x and y:\n\\( n = 5, \\sum x_i = 20, \\sum y_i = 60, \\sum x_i^2 = 120, \\sum y_i^2 = 870, \\sum x_iy_i = 278 \\)\n\nThe regression equation is:",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "\\( \\hat{y} = 8.2 + 0.95x \\)"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "\\( \\hat{y} = 8.2 + 1.053x \\)"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "\\( \\hat{y} = -7.4 + 0.95x \\)"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "\\( \\hat{y} = -7.4 + 1.053x \\)"
+        }
+      ],
+      "inputName": "Q32",
+      "inputType": "radio",
+      "correctAnswer": "a",
+      "explanation": "Slope \\( b = \\frac{n\\sum xy - \\sum x \\sum y}{n\\sum x^2 - (\\sum x)^2} = \\frac{5(278) - (20)(60)}{5(120) - (20)^2} = \\frac{1390 - 1200}{600 - 400} = \\frac{190}{200} = 0.95 \\). \nIntercept \\( a = \\bar{y} - b\\bar{x} = 12 - 0.95(4) = 12 - 3.8 = 8.2 \\). \nEquation: \\( \\hat{y} = 8.2 + 0.95x \\)."
+    },
+    {
+      "id": "extract-1776001215446-52opv-33",
+      "number": "54",
+      "text": "Using the summary data from the previous question, the value of the correlation coefficient (r) between x and y is equal to:",
+      "choices": [
+        {
+          "value": "a",
+          "label": "a",
+          "text": "0.95"
+        },
+        {
+          "value": "b",
+          "label": "b",
+          "text": "0.006"
+        },
+        {
+          "value": "c",
+          "label": "c",
+          "text": "0.491"
+        },
+        {
+          "value": "d",
+          "label": "d",
+          "text": "0"
+        }
+      ],
+      "inputName": "Q33",
+      "inputType": "radio",
+      "correctAnswer": "c",
+      "explanation": "\\( r = \\frac{n\\sum xy - \\sum x \\sum y}{\\sqrt{[n\\sum x^2 - (\\sum x)^2][n\\sum y^2 - (\\sum y)^2]}} \\). \nNumerator = 190. Denominator = \\( \\sqrt{(200)[5(870) - 60^2]} = \\sqrt{200 \\times (4350 - 3600)} = \\sqrt{200 \\times 750} = \\sqrt{150000} ≈ 387.298 \\). \n\\( r = 190 / 387.298 ≈ 0.49058 \\)."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-0",
+      "number": "55",
+      "text": "If \\( X \\sim N(27, 36) \\), then find: \\( P(X \\le \\sigma^2) \\).",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.8413"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.9332"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.0668"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.5"
+        }
+      ],
+      "inputName": "Q0",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "Given the normal distribution \\( X \\sim N(\\mu, \\sigma^2) \\), we identify \\( \\mu = 27 \\) and \\( \\sigma^2 = 36 \\). Therefore, the standard deviation \\( \\sigma = \\sqrt{36} = 6 \\).\n\nWe need to find \\( P(X \\le \\sigma^2) \\), which is \\( P(X \\le 36) \\).\n\nStandardizing the variable to \\( Z \\):\n\\[ Z = \\frac{X - \\mu}{\\sigma} = \\frac{36 - 27}{6} = \\frac{9}{6} = 1.5 \\]\n\nUsing the standard normal distribution table:\n\\( P(Z \\le 1.5) = 0.9332 \\)."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-1",
+      "number": "56",
+      "text": "The weight of children follow an approximate Normal distribution. If the percentage of children whose weight is between 10kg and 35kg is about 68%, then the possible values of the mean and standard deviation, respectively, are:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "22.5, 12.5"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "12.5, 22.5"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "22.5, 6.25"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "6.25, 22.5"
+        }
+      ],
+      "inputName": "Q1",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "The empirical rule (68-95-99.7 rule) states that approximately 68% of data in a normal distribution lies within one standard deviation (\\( \\sigma \\)) of the mean (\\( \\mu \\)).\n\nThis provides the following range: \\( [\\mu - \\sigma, \\mu + \\sigma] = [10, 35] \\).\n\n1. \\( \\mu - \\sigma = 10 \\)\n2. \\( \\mu + \\sigma = 35 \\)\n\nAdding both equations: \\( 2\\mu = 45 \\implies \\mu = 22.5 \\).\nSubtracting equation 1 from equation 2: \\( 2\\sigma = 25 \\implies \\sigma = 12.5 \\)."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-2",
+      "number": "57",
+      "text": "Let \\( A \\) and \\( B \\) be two disjoint events, such that: \\( P(A) = 0.2, P(B) = 0.5 \\). Then find: \\( P(A^c \\cap B^c) \\)",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.3"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.7"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.12"
+        }
+      ],
+      "inputName": "Q2",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "Because events \\( A \\) and \\( B \\) are disjoint, their intersection is null: \\( P(A \\cap B) = 0 \\).\n\nThe probability of the union is: \\( P(A \\cup B) = P(A) + P(B) = 0.2 + 0.5 = 0.7 \\).\n\nBy De Morgan's Law: \\( A^c \\cap B^c = (A \\cup B)^c \\).\n\nTherefore: \\( P(A^c \\cap B^c) = 1 - P(A \\cup B) = 1 - 0.7 = 0.3 \\)."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-3",
+      "number": "58",
+      "text": "The final exam scores in a statistics class were normally distributed with mean of 63 and standard deviation of five. Find the score that 90% of the scores are below it?",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "69.40"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "68.50"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "69.00"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "69.15"
+        }
+      ],
+      "inputName": "Q3",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "To find the score where 90% of observations are below it (the 90th percentile), we first find the Z-score such that \\( P(Z < z) = 0.90 \\). Looking at a standard normal distribution table, \\( z \\approx 1.282 \\). \n\nNext, we use the formula to convert the Z-score to the raw score \\( x \\):\n\\[ x = \\mu + z \\cdot \\sigma \\]\n\\[ x = 63 + (1.282 \\cdot 5) \\]\n\\[ x = 63 + 6.41 = 69.41 \\]\n\nThe closest option is 69.40."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-4",
+      "number": "59",
+      "text": "Find the area of the shaded region, if the Z-score is -0.3. The shaded region represents the area under the standard normal curve to the left of \\( z = -0.3 \\).",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.6179"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.4880"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.3783"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.3821"
+        }
+      ],
+      "inputName": "Q4",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "The area to the left of a Z-score is given by the cumulative distribution function \\( Φ(z) \\). For \\( z = -0.3 \\), we look up the value in the standard normal table:\n\\[ P(Z < -0.3) \\approx 0.3821 \\]"
+    },
+    {
+      "id": "extract-1776001421046-pjijf-5",
+      "number": "60",
+      "text": "A test is made of:\n\\( H_0: \\mu = 17 \\)\n\\( H_1: \\mu > 17 \\)\nis performed using \\( \\alpha = 0.01 \\) significance level. The value of the test statistic is \\( z = 2.68 \\). Your decision for this test is to:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "Reject H1"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "Reject H0"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "Accept H0"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "Can't tell"
+        }
+      ],
+      "inputName": "Q5",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "This is a right-tailed hypothesis test because the alternative hypothesis is \\( \\mu > 17 \\). \n\n1. **Find the critical value**: For a significance level of \\( \\alpha = 0.01 \\), the critical value \\( z_{\\alpha} \\approx 2.33 \\).\n2. **Compare the test statistic**: The calculated test statistic is \\( z = 2.68 \\).\n3. **Decision Rule**: Since \\( 2.68 > 2.33 \\), the test statistic falls in the rejection region.\n4. **Conclusion**: Reject the null hypothesis \\( H_0 \\)."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-6",
+      "number": "61",
+      "text": "If 30% of Jordanians have high blood pressure, and if 210 person are selected at random. Then what is the probability that the sample proportion of Jordanians with high blood pressure is more than 0.29?",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.6333"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.6628"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.3745"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.6255"
+        }
+      ],
+      "inputName": "Q6",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "To solve this, we use the sampling distribution of the sample proportion \\( \\hat{p} \\).\n1. Given: Population proportion \\( p = 0.30 \\), sample size \\( n = 210 \\).\n2. The mean of the sampling distribution is \\( \\mu_{\\hat{p}} = p = 0.30 \\).\n3. The standard error is \\( \\sigma_{\\hat{p}} = \\sqrt{\\frac{p(1-p)}{n}} = \\sqrt{\\frac{0.30 \\times 0.70}{210}} = \\sqrt{\\frac{0.21}{210}} = \\sqrt{0.001} \\approx 0.03162 \\).\n4. We need to find \\( P(\\hat{p} > 0.29) \\). Calculate the z-score: \\( z = \\frac{0.29 - 0.30}{0.03162} \\approx -0.316 \\).\n5. \\( P(Z > -0.316) = P(Z < 0.316) \\). Looking at the standard normal distribution table, the value for \\( z = 0.32 \\) is approximately 0.6255."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-7",
+      "number": "62",
+      "text": "If the variance of a data = 100, and the data are modified through the equation: \\( y=2kx+30 \\). If the standard deviation of the modified data = 100, then the value of \\( k \\) is:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "2"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "10"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "20"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "5"
+        }
+      ],
+      "inputName": "Q7",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "1. The original variance is 100, so the original standard deviation is \\( \\sigma_x = \\sqrt{100} = 10 \\).\n2. When data is transformed by the linear equation \\( y = ax + b \\), the new standard deviation \\( \\sigma_y \\) is given by \\( |a| \\cdot \\sigma_x \\).\n3. In this case, \\( a = 2k \\). We are given that the new standard deviation \\( \\sigma_y = 100 \\).\n4. Substitute the values: \\( 100 = |2k| \\cdot 10 \\).\n5. Divide by 10: \\( 10 = |2k| \\).\n6. Therefore, \\( |k| = 5 \\). The value of \\( k \\) is 5."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-8",
+      "number": "63",
+      "text": "In an experiment of rolling a fair dice 6-times, find the probability to have at least one even number:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.1123"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.5"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.8871"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.9844"
+        }
+      ],
+      "inputName": "Q8",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "1. The probability of rolling an even number on a single die is \\( p = \\frac{3}{6} = 0.5 \\).\n2. The probability of rolling an odd number (not even) is \\( q = 1 - p = 0.5 \\).\n3. For 6 independent trials, the probability of having 'at least one' even number is calculated as: \\( 1 - P(\\text{no even numbers}) \\).\n4. \\( P(\\text{no even numbers}) = P(\\text{all odd numbers}) = (0.5)^6 = 0.015625 \\).\n5. \\( P(\\text{at least one even}) = 1 - 0.015625 = 0.984375 \\).\n6. Rounding to four decimal places gives 0.9844."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-9",
+      "number": "64",
+      "text": "The following table represents the probability distribution for the random variable X. Find the value of \\( E(X^2) \\):\n\n| X | -2 | 0 | 1 | 2 |\n| --- | --- | --- | --- | --- |\n| P(X) | 0.2 | 0.3 | 0.4 | 0.1 |",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.2"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "1.2"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.6"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "1.6"
+        }
+      ],
+      "inputName": "Q9",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "To find the expected value of \\( X^2 \\), we use the formula: \n\\[ E(X^2) = \\sum x_i^2 \\cdot P(x_i) \\]\n\nSubstituting the values from the table:\n\\[ E(X^2) = (-2)^2(0.2) + (0)^2(0.3) + (1)^2(0.4) + (2)^2(0.1) \\]\n\\[ E(X^2) = 4(0.2) + 0(0.3) + 1(0.4) + 4(0.1) \\]\n\\[ E(X^2) = 0.8 + 0 + 0.4 + 0.4 = 1.6 \\]"
+    },
+    {
+      "id": "extract-1776001421046-pjijf-10",
+      "number": "65",
+      "text": "If \\( X \\sim N(1000, 4000) \\), for a random sample of size 40, then the standard deviation of the sample mean is:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "1"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "10"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "1000"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "100"
+        }
+      ],
+      "inputName": "Q10",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "The standard deviation of the sample mean (standard error) for a population with variance \\( \\sigma^2 \\) and sample size \\( n \\) is calculated as:\n\\[ \\sigma_{\\bar{x}} = \\frac{\\sigma}{\\sqrt{n}} = \\sqrt{\\frac{\\sigma^2}{n}} \\]\n\nGiven the population parameters from \\( X \\sim N(1000, 4000) \\):\n- Variance \\( \\sigma^2 = 4000 \\)\n- Sample size \\( n = 40 \\)\n\n\\[ \\sigma_{\\bar{x}} = \\sqrt{\\frac{4000}{40}} = \\sqrt{100} = 10 \\]"
+    },
+    {
+      "id": "extract-1776001421046-pjijf-11",
+      "number": "66",
+      "text": "If 30% of all dogs in a city have brown hair. In a sample of 500 dogs, what is the probability that less than 140 dogs have brown hair?",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.8849"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.1539"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.1151"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.8461"
+        }
+      ],
+      "inputName": "Q11",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "This problem can be solved using the normal approximation to the binomial distribution since \\( np = 500 \\times 0.3 = 150 \\) and \\( nq = 500 \\times 0.7 = 350 \\) are both greater than 5.\n\n1. **Identify parameters**: \\( p = 0.30 \\), \\( n = 500 \\).\n2. **Calculate mean (\\( \\mu \\))**: \\( \\mu = np = 150 \\).\n3. **Calculate standard deviation (\\( \\sigma \\))**: \\( \\sigma = \\sqrt{np(1-p)} = \\sqrt{500 \\times 0.3 \\times 0.7} = \\sqrt{105} \\approx 10.247 \\).\n4. **Apply continuity correction**: We want \\( P(X < 140) \\), which translates to \\( P(X \\le 139.5) \\).\n5. **Calculate Z-score**: \\( z = \\frac{139.5 - 150}{10.247} \\approx -1.0247 \\).\n6. **Find probability**: Looking up \\( z = -1.02 \\) in the standard normal table gives an area of **0.1539**."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-12",
+      "number": "67",
+      "text": "A random sample of 36 statistics students was asked: Have you smoked a cigarette in the past week? Six students reported smoking within the past week. Find 95% confidence interval for the proportion of statistics students who smoke:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "(0.045, 0.122)"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "(0.045, 0.289)"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "(0.167, 0.289)"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "(0.122, 0.167)"
+        }
+      ],
+      "inputName": "Q12",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "To find the 95% confidence interval for the proportion:\n1. **Sample proportion (\\( \\hat{p} \\))**: \\( \\hat{p} = \\frac{x}{n} = \\frac{6}{36} \\approx 0.1667 \\).\n2. **Critical value (\\( z \\))**: For 95% confidence, \\( z_{0.025} = 1.96 \\).\n3. **Margin of Error (E)**: \\( E = z \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}} = 1.96 \\sqrt{\\frac{0.1667(0.8333)}{36}} \\approx 0.1217 \\).\n4. **Interval bounds**: \n   - Lower: \\( 0.1667 - 0.1217 = 0.045 \\)\n   - Upper: \\( 0.1667 + 0.1217 = 0.2884 \\approx 0.289 \\)\nResult: **(0.045, 0.289)**."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-13",
+      "number": "68",
+      "text": "In testing the population mean, a left-tailed test has a test statistic of \\( z = -2.72 \\). Which is the correct critical value, if we use \\( \\alpha = 0.005 \\)?",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "2.576"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "-2.576"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "1.645"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "-1.645"
+        }
+      ],
+      "inputName": "Q13",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "In a hypothesis test:\n- A **left-tailed test** means the rejection region is in the far left tail of the distribution.\n- The critical value is the z-score such that the area to its left is equal to the significance level \\( \\alpha \\).\n- For \\( \\alpha = 0.005 \\), the cumulative area of 0.005 in the standard normal table corresponds to a z-score of **-2.576**."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-14",
+      "number": "69",
+      "text": "In testing the population mean, a left-tailed test has a test statistic of \\(z = -2.72\\). Which is the correct critical value, if we use \\(\\alpha = 0.005\\)?",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "2.576"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "-2.576"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "1.645"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "-1.645"
+        }
+      ],
+      "inputName": "Q14",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "For a left-tailed test with a significance level of \\(\\alpha = 0.005\\), we look for the z-score that leaves an area of 0.005 in the left tail. According to the standard normal distribution table, the value that corresponds to a cumulative area of 0.005 is approximately \\(-2.576\\)."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-15",
+      "number": "70",
+      "text": "Suppose that: \\(X \\sim N(\\mu, \\sigma^2)\\). If \\(P(X < 85) = 0.9332\\), and \\(P(X < 80) = 0.8413\\), find the mean and the variance of this distribution.",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "70, 100"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "70, 10"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "35, 100"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "35, 10"
+        }
+      ],
+      "inputName": "Q15",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "1. Convert the probabilities to z-scores:\n- For \\(P(X < 85) = 0.9332\\), the corresponding z-score is \\(z_1 = 1.5\\).\n- For \\(P(X < 80) = 0.8413\\), the corresponding z-score is \\(z_2 = 1.0\\).\n2. Set up equations using the z-score formula \\(z = \\frac{X - \\mu}{\\sigma}\\):\n- \\(1.5 = \\frac{85 - \\mu}{\\sigma} \\Rightarrow 85 - \\mu = 1.5\\sigma\\)\n- \\(1.0 = \\frac{80 - \\mu}{\\sigma} \\Rightarrow 80 - \\mu = \\sigma\\)\n3. Solve the system:\n- Subtract the second equation from the first: \\(5 = 0.5\\sigma \\Rightarrow \\sigma = 10\\).\n- Substitute \\(\\sigma = 10\\) back: \\(80 - \\mu = 10 \\Rightarrow \\mu = 70\\).\n4. The variance is \\(\\sigma^2 = 10^2 = 100\\).\nSo, the mean is 70 and the variance is 100."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-16",
+      "number": "71",
+      "text": "A sample of size 50 from a unimodal (one mode) distribution that is skewed to the right has \\(\\text{mode} = 70\\). Then the mean of the sample is:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "equal to 70"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "greater than 70"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "less than 50"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "less than 70"
+        }
+      ],
+      "inputName": "Q16",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "In a distribution that is skewed to the right (positively skewed), the mean is typically greater than the median, and the median is greater than the mode (Mean > Median > Mode). If the mode is 70, the mean will be greater than 70."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-17",
+      "number": "72",
+      "text": "If \\(X \\sim N(1000, 4000)\\), for a random sample of size 40, then the standard deviation of the sample mean (standard error) is:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "10"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "100"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "40"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "20"
+        }
+      ],
+      "inputName": "Q17",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "The standard deviation of the sample mean (also known as the standard error) is calculated as \\(\\sigma_{\\bar{x}} = \\frac{\\sigma}{\\sqrt{n}}\\). Given \\(\\sigma^2 = 4000\\) and \\(n = 40\\):\n\\[ \\sigma_{\\bar{x}} = \\frac{\\sqrt{4000}}{\\sqrt{40}} = \\sqrt{\\frac{4000}{40}} = \\sqrt{100} = 10 \\]"
+    },
+    {
+      "id": "extract-1776001421046-pjijf-18",
+      "number": "73",
+      "text": "If \\( X \\sim N(1000, 4000) \\), for a random sample of size 40, then the standard deviation of the sample mean is:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "1"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "10"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "1000"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "100"
+        }
+      ],
+      "inputName": "Q18",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "The standard deviation of the sample mean, also known as the standard error, is calculated using the formula \\( \\sigma_{\\bar{x}} = \\frac{\\sigma}{\\sqrt{n}} \\). Given the population distribution \\( X \\sim N(1000, 4000) \\), the population variance is \\( \\sigma^2 = 4000 \\), which means the population standard deviation is \\( \\sigma = \\sqrt{4000} \\). For a sample size of \\( n = 40 \\), the standard error is: \\[\n\\sigma_{\\bar{x}} = \\frac{\\sqrt{4000}}{\\sqrt{40}} = \\sqrt{\\frac{4000}{40}} = \\sqrt{100} = 10\n\\]"
+    },
+    {
+      "id": "extract-1776001421046-pjijf-19",
+      "number": "74",
+      "text": "A group of 625 students has mean age of 15.8 years, with standard deviation of 0.6 years. The ages are normally distributed. Find the probability that the sum of the ages is between 9800 and 9900 years?",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.9956"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.9545"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.9525"
+        }
+      ],
+      "inputName": "Q19",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "Let \\( n = 625 \\), \\( \\mu = 15.8 \\), and \\( \\sigma = 0.6 \\). The sum of ages \\( S_n \\) follows a normal distribution: \\( S_n \\sim N(n\\mu, n\\sigma^2) \\).\n1. Calculate mean of the sum: \\( \\mu_{sum} = 625 \\times 15.8 = 9875 \\).\n2. Calculate standard deviation of the sum: \\( \\sigma_{sum} = \\sigma \\sqrt{n} = 0.6 \\times \\sqrt{625} = 15 \\).\n3. Find \\( P(9800 < S_n < 9900) \\) by converting to Z-scores:\n   - \\( z_1 = \\frac{9800 - 9875}{15} = -5 \\)\n   - \\( z_2 = \\frac{9900 - 9875}{15} = 1.666... \\approx 1.67 \\)\n4. Using standard normal tables: \\( P(-5 < Z < 1.67) = \\Phi(1.67) - \\Phi(-5) \\approx 0.9525 - 0 = 0.9525 \\)."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-20",
+      "number": "75",
+      "text": "Consider testing:\n\\( H_0: \\mu = 80 \\)\n\\( H_1: \\mu < 80 \\)\nA random sample of size 16 is taken from a normal population, and the mean was 77.5 and \\( S = 5.5 \\). If the significance level \\( = 0.01 \\), find the test statistic:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "t = -1.82"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "z = -1.82"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "t = -2.602"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "z = -2.602"
+        }
+      ],
+      "inputName": "Q20",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "Because the population variance is unknown, the sample size is small (\\( n = 16 \\)), and the population is normally distributed, we use the t-statistic. The formula is:\n\\[ t = \\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}} \\]\nSubstituting the values:\n\\[ t = \\frac{77.5 - 80}{5.5 / \\sqrt{16}} = \\frac{-2.5}{5.5 / 4} = \\frac{-2.5}{1.375} \\approx -1.8181... \\approx -1.82 \\]"
+    },
+    {
+      "id": "extract-1776001421046-pjijf-21",
+      "number": "76",
+      "text": "If 30% of Jordanians have high blood pressure, and if 210 person are selected at random. Then what is the probability that the sample proportion of Jordanians with high blood pressure is less than 0.31?",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.6333"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.6628"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.3745"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.6255"
+        }
+      ],
+      "inputName": "Q21",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "To find the probability of a sample proportion, we use the normal distribution approximation. Given population proportion \\( p = 0.3 \\) and sample size \\( n = 210 \\), the standard error is: \\n\\[ \\sigma_{\\hat{p}} = \\sqrt{\\frac{p(1-p)}{n}} = \\sqrt{\\frac{0.3 \\times 0.7}{210}} = \\sqrt{0.001} \\approx 0.0316 \\] \\nTo find \\( P(\\hat{p} < 0.31) \\), we calculate the Z-score: \\n\\[ z = \\frac{0.31 - 0.3}{0.0316} \\approx 0.32 \\] \\nLooking up \\( z = 0.32 \\) in the standard normal table gives a probability of approximately 0.6255."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-22",
+      "number": "77",
+      "text": "If the margin error is: 2.35 and the sample mean = 56.5. Then the confidence interval for the population mean is given by:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "(54.15, 58.85)"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "(51.8, 61.2)"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "(52.15, 56.85)"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "(56.15, 60.85)"
+        }
+      ],
+      "inputName": "Q22",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "The confidence interval for a population mean is calculated as \\( \\text{Sample Mean} \\pm \\text{Margin of Error} \\). \\nLower limit = \\( 56.5 - 2.35 = 54.15 \\) \\nUpper limit = \\( 56.5 + 2.35 = 58.85 \\) \\nSo the interval is (54.15, 58.85)."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-23",
+      "number": "78",
+      "text": "If \\( X \\sim N(1000, 4000) \\), for a random sample of size 40, then the standard deviation of the sample mean is:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "1"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "10"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "1000"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "100"
+        }
+      ],
+      "inputName": "Q23",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "The standard deviation of the sample mean (also known as the standard error) is calculated as \\( \\sigma_{\\bar{x}} = \\frac{\\sigma}{\\sqrt{n}} \\). Given the distribution \\( X \\sim N(1000, 4000) \\), we identify the variance \\( \\sigma^2 = 4000 \\). For a sample size \\( n = 40 \\): \\n\\[ \\sigma_{\\bar{x}} = \\sqrt{\\frac{\\sigma^2}{n}} = \\sqrt{\\frac{4000}{40}} = \\sqrt{100} = 10 \\]"
+    },
+    {
+      "id": "extract-1776001421046-pjijf-24",
+      "number": "79",
+      "text": "If 30% of Jordanians have high blood pressure, and if 210 person are selected at random. Then what is the probability that the sample proportion of Jordanians with high blood pressure is more than 0.29?",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "0.6333"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "0.6628"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "0.3745"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "0.6255"
+        }
+      ],
+      "inputName": "Q24",
+      "inputType": "radio",
+      "correctAnswer": "D",
+      "explanation": "To find the probability that the sample proportion \\( \\hat{p} \\) is more than 0.29:\n1. Identify the population proportion \\( p = 0.30 \\) and sample size \\( n = 210 \\).\n2. Calculate the standard error: \\( \\sigma_{\\hat{p}} = \\sqrt{\\frac{p(1-p)}{n}} = \\sqrt{\\frac{0.30 \\times 0.70}{210}} = \\sqrt{\\frac{0.21}{210}} = \\sqrt{0.001} \\approx 0.03162 \\).\n3. Calculate the z-score for \\( \\hat{p} = 0.29 \\): \\( z = \\frac{\\hat{p} - p}{\\sigma_{\\hat{p}}} = \\frac{0.29 - 0.30}{0.03162} \\approx -0.3162 \\).\n4. We want \\( P(\\hat{p} > 0.29) = P(Z > -0.32) \\). Using the Z-table, \\( P(Z < 0.32) \\approx 0.6255 \\)."
+    },
+    {
+      "id": "extract-1776001421046-pjijf-25",
+      "number": "80",
+      "text": "A random sample of 36 statistics students was asked: \"Have you smoked a cigarette in the past week?\" Six students reported smoking within the past week. Find a 95% confidence interval for the proportion of statistics students who smoke:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "(0.045, 0.122)"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "(0.045, 0.289)"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "(0.167, 0.289)"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "(0.122, 0.167)"
+        }
+      ],
+      "inputName": "Q25",
+      "inputType": "radio",
+      "correctAnswer": "B",
+      "explanation": "To calculate the 95% confidence interval for the proportion:\n1. Find the sample proportion \\( \\hat{p} = \\frac{x}{n} = \\frac{6}{36} \\approx 0.1667 \\).\n2. For a 95% confidence level, the critical value \\( z^* \\approx 1.96 \\).\n3. Calculate the standard error: \\( SE = \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}} = \\sqrt{\\frac{0.1667 \\times 0.8333}{36}} \\approx 0.0621 \\).\n4. Calculate the margin of error: \\( E = 1.96 \\times 0.0621 \\approx 0.1217 \\).\n5. The interval is \\( \\hat{p} \\pm E \\):\n   - Lower bound: \\( 0.1667 - 0.1217 = 0.045 \\)\n   - Upper bound: \\( 0.1667 + 0.1217 = 0.2884 \\)\nThis matches the interval (0.045, 0.289)."
+    },
+    {
+      "id": "extract-combined-1776000157182-0",
+      "number": "81",
+      "text": "Let \\( X \\sim N(\\mu, \\sigma^2) \\), then if the area to the right of \\( X \\) is 0.9370, what is the area to the left of \\( X \\)?",
+      "choices": [
+        {
+          "value": "1",
+          "label": "1",
+          "text": "0.0120"
+        },
+        {
+          "value": "2",
+          "label": "2",
+          "text": "0.9884"
+        },
+        {
+          "value": "3",
+          "label": "3",
+          "text": "0.0630"
+        },
+        {
+          "value": "4",
+          "label": "4",
+          "text": "0.9394"
+        }
+      ],
+      "inputName": "Q0",
+      "inputType": "radio",
+      "correctAnswer": "3",
+      "explanation": "The total area under the normal distribution curve is always 1. If the area to the right of a point is 0.9370, the area to its left is \\( 1 - 0.9370 = 0.0630 \\)."
+    },
+    {
+      "id": "extract-combined-1776000157182-1",
+      "number": "82",
+      "text": "Suppose that the weights of 400 students selected from the HU are normally distributed with \\( \\mu = 75 \\text{ kg} \\) and \\( \\sigma^2 = 25 \\text{ kg} \\), what is the number of students having weights between \\( 60 \\text{ kg} \\) and \\( 80 \\text{ kg} \\)?",
+      "choices": [
+        {
+          "value": "1",
+          "label": "1",
+          "text": "504"
+        },
+        {
+          "value": "2",
+          "label": "2",
+          "text": "420"
+        },
+        {
+          "value": "3",
+          "label": "3",
+          "text": "252"
+        },
+        {
+          "value": "4",
+          "label": "4",
+          "text": "336"
+        }
+      ],
+      "inputName": "Q1",
+      "inputType": "radio",
+      "correctAnswer": "4",
+      "explanation": "First, find the standard deviation: \\( \\sigma = \\sqrt{25} = 5 \\). \nConvert weights to Z-scores:\n\\( Z_1 = \\frac{60 - 75}{5} = -3 \\)\n\\( Z_2 = \\frac{80 - 75}{5} = 1 \\)\nThe probability \\( P(-3 < Z < 1) = \\Phi(1) - \\Phi(-3) = 0.8413 - 0.0013 = 0.84 \\). \nThe number of students is \\( 400 \\times 0.84 = 336 \\)."
+    },
+    {
+      "id": "extract-combined-1776000157182-2",
+      "number": "83",
+      "text": "For \\( n = 36 \\), if \\( X = 6 \\), then the 95% C.I. for P is:",
+      "choices": [
+        {
+          "value": "1",
+          "label": "1",
+          "text": "(0.179, 0.487)"
+        },
+        {
+          "value": "2",
+          "label": "2",
+          "text": "(0.132, 0.424)"
+        },
+        {
+          "value": "3",
+          "label": "3",
+          "text": "(0.086, 0.358)"
+        },
+        {
+          "value": "4",
+          "label": "4",
+          "text": "(0.045, 0.289)"
+        }
+      ],
+      "inputName": "Q2",
+      "inputType": "radio",
+      "correctAnswer": "4",
+      "explanation": "Sample proportion \\( \\hat{p} = \\frac{6}{36} = 0.1667 \\). \nFor 95% confidence, \\( Z = 1.96 \\). \nMargin of error \\( E = Z \\times \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}} = 1.96 \\times \\sqrt{\\frac{0.1667 \\times 0.8333}{36}} \\approx 0.1217 \\). \nCI = \\( 0.1667 \\pm 0.1217 = (0.045, 0.2884) \\). Option 4 is the closest match."
+    },
+    {
+      "id": "extract-combined-1776000157182-3",
+      "number": "84",
+      "text": "Suppose that the margin error is \\( E = 2.35 \\) and the sample mean \\( = 56.5 \\), then the \\( (1-\\alpha)100\\% \\) confidence interval for the population mean \\( (\\mu) \\) is given by:",
+      "choices": [
+        {
+          "value": "1",
+          "label": "1",
+          "text": "(54.15, 58.85)"
+        },
+        {
+          "value": "2",
+          "label": "2",
+          "text": "(55.03, 57.97)"
+        },
+        {
+          "value": "3",
+          "label": "3",
+          "text": "(53.39, 59.61)"
+        },
+        {
+          "value": "4",
+          "label": "4",
+          "text": "(52.35, 60.65)"
+        }
+      ],
+      "inputName": "Q3",
+      "inputType": "radio",
+      "correctAnswer": "1",
+      "explanation": "The confidence interval is calculated as \\( \\text{mean} \\pm E \\). \nLower bound = \\( 56.5 - 2.35 = 54.15 \\). \nUpper bound = \\( 56.5 + 2.35 = 58.85 \\)."
+    },
+    {
+      "id": "extract-combined-1776000157182-4",
+      "number": "85",
+      "text": "For testing: \\( H_0 : \\mu = 17 \\) vs \\( H_1 : \\mu > 17 \\), at \\( \\alpha = 0.01 \\), if the value of the test statistic (calculated value) is \\( Z = 2.68 \\), then the decision and conclusion for this test is:",
+      "choices": [
+        {
+          "value": "1",
+          "label": "1",
+          "text": "Decision: Reject \\( H_0 \\); Conclusion: \\( \\mu > 17 \\)"
+        },
+        {
+          "value": "2",
+          "label": "2",
+          "text": "Decision: Accept \\( H_0 \\); Conclusion: \\( \\mu = 17 \\)"
+        },
+        {
+          "value": "3",
+          "label": "3",
+          "text": "Decision: Reject \\( H_0 \\); Conclusion: and \\( \\mu > 20 \\)"
+        },
+        {
+          "value": "4",
+          "label": "4",
+          "text": "Decision: Reject \\( H_0 \\); Conclusion: and \\( \\mu < 17 \\)"
+        }
+      ],
+      "inputName": "Q4",
+      "inputType": "radio",
+      "correctAnswer": "1",
+      "explanation": "This is a right-tailed test. For \\( \\alpha = 0.01 \\), the critical value is \\( Z_{0.01} \\approx 2.33 \\). Since the calculated \\( Z = 2.68 \\) is greater than 2.33, we reject \\( H_0 \\) and conclude that there is sufficient evidence to support the claim that \\( \\mu > 17 \\)."
+    },
+    {
+      "id": "extract-combined-1776000157182-5",
+      "number": "86",
+      "text": "In the testing of the population mean \\( (\\mu) \\), a left-tailed test has a test statistic (calculated value) of \\( Z = -2.72 \\), then at \\( \\alpha = 0.05 \\) which of the following is the correct critical value?",
+      "choices": [
+        {
+          "value": "1",
+          "label": "1",
+          "text": "-1.645"
+        },
+        {
+          "value": "2",
+          "label": "2",
+          "text": "-1.960"
+        },
+        {
+          "value": "3",
+          "label": "3",
+          "text": "1.645"
+        },
+        {
+          "value": "4",
+          "label": "4",
+          "text": "1.960"
+        }
+      ],
+      "inputName": "Q5",
+      "inputType": "radio",
+      "correctAnswer": "1",
+      "explanation": "For a left-tailed test with \\( \\alpha = 0.05 \\), the critical value is the z-score such that the area to its left is 0.05. This corresponds to \\( -Z_{0.05} = -1.645 \\)."
+    },
+    {
+      "id": "extract-combined-1776000157182-6",
+      "number": "87",
+      "text": "Given the following information: \\( \\sum_{i=1}^{50} X_i = 205 \\) and \\( \\sum_{i=1}^{50} X_i^2 = 3005 \\), then the value of the sample variance is \\( S^2 = \\)",
+      "choices": [
+        {
+          "value": "1",
+          "label": "1",
+          "text": "44.173"
+        },
+        {
+          "value": "2",
+          "label": "2",
+          "text": "50.112"
+        },
+        {
+          "value": "3",
+          "label": "3",
+          "text": "55.316"
+        },
+        {
+          "value": "4",
+          "label": "4",
+          "text": "47.566"
+        }
+      ],
+      "inputName": "Q6",
+      "inputType": "radio",
+      "correctAnswer": "1",
+      "explanation": "Sample variance \\( S^2 = \\frac{1}{n-1} \\left( \\sum X_i^2 - \\frac{(\\sum X_i)^2}{n} \\right) \\). \nWith \\( n = 50 \\):\n\\( S^2 = \\frac{1}{49} \\left( 3005 - \\frac{205^2}{50} \\right) = \\frac{1}{49} (3005 - 840.5) = \\frac{2164.5}{49} \\approx 44.173 \\)."
+    },
+    {
+      "id": "extract-combined-1776000157182-7",
+      "number": "88",
+      "text": "The sample size (n) required to estimate the population mean \\( (\\mu) \\) with a 95% confidence interval if \\( E = 5 \\) and \\( \\sigma^2 = 225 \\) equals to:",
+      "choices": [
+        {
+          "value": "1",
+          "label": "1",
+          "text": "35"
+        },
+        {
+          "value": "2",
+          "label": "2",
+          "text": "16"
+        },
+        {
+          "value": "3",
+          "label": "3",
+          "text": "23"
+        },
+        {
+          "value": "4",
+          "label": "4",
+          "text": "31"
+        }
+      ],
+      "inputName": "Q7",
+      "inputType": "radio",
+      "correctAnswer": "1",
+      "explanation": "Sample size formula: \\( n = \\left( \\frac{Z_{\\alpha/2} \\cdot \\sigma}{E} \\right)^2 \\). \nFor 95% confidence, \\( Z = 1.96 \\). Given \\( \\sigma^2 = 225 \\Rightarrow \\sigma = 15 \\). \n\\( n = \\left( \\frac{1.96 \\cdot 15}{5} \\right)^2 = (1.96 \\cdot 3)^2 = (5.88)^2 \\approx 34.57 \\). \nRounding up to the nearest whole number, \\( n = 35 \\)."
+    },
+    {
+      "id": "extract-combined-1776000157182-8",
+      "number": "89",
+      "text": "Let X be a discrete random variable with a probability distribution \\( P(X=x) \\) such that: \\( P(X=-1) = P(X=0) = P(X=1) = 0.3 \\) and \\( P(X=2) = k \\), then what is the expected value for the random variable X?",
+      "choices": [
+        {
+          "value": "1",
+          "label": "1",
+          "text": "1.1"
+        },
+        {
+          "value": "2",
+          "label": "2",
+          "text": "1.4"
+        },
+        {
+          "value": "3",
+          "label": "3",
+          "text": "0.8"
+        },
+        {
+          "value": "4",
+          "label": "4",
+          "text": "0.2"
+        }
+      ],
+      "inputName": "Q8",
+      "inputType": "radio",
+      "correctAnswer": "4",
+      "explanation": "Total probability must be 1: \\( 0.3 + 0.3 + 0.3 + k = 1 \\Rightarrow 0.9 + k = 1 \\Rightarrow k = 0.1 \\). \nExpected value \\( E(X) = \\sum x_i P(x_i) = (-1 \\cdot 0.3) + (0 \\cdot 0.3) + (1 \\cdot 0.3) + (2 \\cdot 0.1) = -0.3 + 0 + 0.3 + 0.2 = 0.2 \\)."
+    },
+    {
+      "id": "extract-combined-1776000157182-9",
+      "number": "90",
+      "text": "The value of the third quartile \\( (Q_3) \\) for the following ordered data set: 62, 62, 64, 65, 65, 66, 66, 69, is equal to:",
+      "choices": [
+        {
+          "value": "1",
+          "label": "1",
+          "text": "\\( Q_3 = 66 \\)"
+        },
+        {
+          "value": "2",
+          "label": "2",
+          "text": "\\( Q_3 = 66.5 \\)"
+        },
+        {
+          "value": "3",
+          "label": "3",
+          "text": "\\( Q_3 = 67.5 \\)"
+        },
+        {
+          "value": "4",
+          "label": "4",
+          "text": "\\( Q_3 = 68 \\)"
+        }
+      ],
+      "inputName": "Q9",
+      "inputType": "radio",
+      "correctAnswer": "1",
+      "explanation": "With \\( n = 8 \\), the position of \\( Q_3 \\) is \\( 0.75(n+1) = 6.75 \\). The 6th and 7th values in the ordered set are both 66. Therefore, \\( Q_3 = 66 \\)."
+    },
+    {
+      "id": "extract-combined-1776000157182-10",
+      "number": "91",
+      "text": "A random sample of size \\( n=40 \\) is taken from \\( N(1000, 3240) \\), then the standard deviation of the sample mean is equal to:",
+      "choices": [
+        {
+          "value": "A",
+          "label": "A",
+          "text": "9"
+        },
+        {
+          "value": "B",
+          "label": "B",
+          "text": "10"
+        },
+        {
+          "value": "C",
+          "label": "C",
+          "text": "11"
+        },
+        {
+          "value": "D",
+          "label": "D",
+          "text": "8"
+        }
+      ],
+      "inputName": "Q10",
+      "inputType": "radio",
+      "correctAnswer": "A",
+      "explanation": "The standard deviation of the sample mean (also known as the standard error) is given by the formula:\n\\[ \\sigma_{\\bar{x}} = \\frac{\\sigma}{\\sqrt{n}} = \\sqrt{\\frac{\\sigma^2}{n}} \\]\n\nFrom the given normal distribution \\( N(\\mu, \\sigma^2) = N(1000, 3240) \\), we have:\n- Population variance \\( \\sigma^2 = 3240 \\)\n- Sample size \\( n = 40 \\)\n\nSubstituting these values into the formula:\n\\[ \\sigma_{\\bar{x}} = \\sqrt{\\frac{3240}{40}} = \\sqrt{81} = 9 \\]\n\nThus, the standard deviation of the sample mean is 9."
+    }
+  ],
+  "params": {
+    "chapter": "3"
+  }
+}
