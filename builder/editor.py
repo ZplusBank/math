@@ -2264,6 +2264,11 @@ class ExamEditor:
     def __init__(self, root):
         self.root = root
 
+        self.workspace_root = Path(__file__).resolve().parents[2]
+        self.available_projects = self._detect_projects()
+        self.current_project = None
+        self.project_var = tk.StringVar(value="")
+
         self.base_path = Path(__file__).parent.parent
         self.data_path = self.base_path / "data"
         self.config_path = self.base_path / "config"
@@ -2275,7 +2280,59 @@ class ExamEditor:
         self.current_chapter_idx = None
         
         self.setup_ui()
+        default_project = Path(__file__).resolve().parents[1].name
+        if default_project not in self.available_projects and self.available_projects:
+            default_project = self.available_projects[0]
+        self.set_active_project(default_project, show_status=False)
+
+    def _detect_projects(self):
+        """Detect available builder projects (prefers it/math)."""
+        candidates = []
+        for name in ("it", "math"):
+            project_root = self.workspace_root / name
+            if (project_root / "config" / "sections.json").exists():
+                candidates.append(name)
+
+        if not candidates:
+            fallback = Path(__file__).resolve().parents[1].name
+            candidates.append(fallback)
+        return candidates
+
+    def _set_project_paths(self, project_name):
+        """Update base paths for the selected project."""
+        self.base_path = self.workspace_root / project_name
+        self.data_path = self.base_path / "data"
+        self.config_path = self.base_path / "config"
+
+    def on_project_change(self, event=None):
+        """Handle project combobox selection changes."""
+        selected = self.project_var.get().strip()
+        if selected:
+            self.set_active_project(selected)
+
+    def set_active_project(self, project_name, show_status=True):
+        """Switch the editor context to one project (it/math)."""
+        if not project_name:
+            return
+        if project_name not in self.available_projects:
+            return
+        if self.current_project == project_name:
+            return
+
+        self.current_project = project_name
+        self.project_var.set(project_name)
+        self._set_project_paths(project_name)
+
+        self.current_section = None
+        self.current_section_idx = None
+        self.current_chapter_idx = None
+        self.chapters = []
+
         self.load_sections()
+        self.refresh_chapters_tree()
+        self.root.title(f"Exam Engine Editor [{project_name.upper()}]")
+        if show_status:
+            self.update_status(f"Switched builder to {project_name}", "blue")
         
     def setup_ui(self):
         """Setup main UI with improved layout"""
@@ -2287,6 +2344,18 @@ class ExamEditor:
                   width=15, bootstyle="primary").pack(side=tk.LEFT, padx=5)
         ttk.Button(toolbar, text="Refresh", command=self.refresh_all,
                   width=12, bootstyle="info-outline").pack(side=tk.LEFT, padx=5)
+
+        ttk.Label(toolbar, text="Builder:", style="SubHeader.TLabel").pack(side=tk.LEFT, padx=(10, 4))
+        self.project_combo = ttk.Combobox(
+            toolbar,
+            textvariable=self.project_var,
+            values=self.available_projects,
+            state="readonly",
+            width=8,
+            bootstyle="info",
+        )
+        self.project_combo.pack(side=tk.LEFT, padx=(0, 5))
+        self.project_combo.bind("<<ComboboxSelected>>", self.on_project_change)
 
         self.status_label = ttk.Label(toolbar, text="Ready",
                                        foreground=COLORS["success"],
@@ -4143,6 +4212,14 @@ class ExamEditor:
     def generate_js_config(self):
         """Generate js/exam-config.js from current sections and chapters"""
         try:
+            if not self.sections:
+                messagebox.showwarning(
+                    "No Sections",
+                    "No sections loaded for this builder. Existing js/exam-config.js was left unchanged."
+                )
+                self.update_status("Skipped config generation (no sections)", "orange")
+                return
+
             full_config = []
             
             for section in self.sections:
@@ -4257,6 +4334,14 @@ class ExamEditor:
                         sec_data["chapters"] = []
                 
                 full_config.append(sec_data)
+
+            if not full_config:
+                messagebox.showwarning(
+                    "No Config Data",
+                    "Config generation produced no data. Existing js/exam-config.js was left unchanged."
+                )
+                self.update_status("Skipped config generation (empty data)", "orange")
+                return
             
             js_path = self.base_path / "js" / "exam-config.js"
             js_path.parent.mkdir(parents=True, exist_ok=True)
