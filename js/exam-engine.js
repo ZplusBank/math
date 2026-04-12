@@ -2048,6 +2048,12 @@ const app = {
 };
 
 // Initialize app when page loads
-window.addEventListener('DOMContentLoaded', () => {
-    app.init();
+window.addEventListener('DOMContentLoaded', async () => {
+    await app.init();
+
+    const params = new URLSearchParams(window.location.search);
+    const subjectId = (params.get('subject') || '').trim();
+    if (subjectId) {
+        app.selectSubject(subjectId);
+    }
 });
