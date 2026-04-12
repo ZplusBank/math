@@ -2052,8 +2052,15 @@ window.addEventListener('DOMContentLoaded', async () => {
     await app.init();
 
     const params = new URLSearchParams(window.location.search);
-    const subjectId = (params.get('subject') || '').trim();
-    if (subjectId) {
-        app.selectSubject(subjectId);
+    const requestedSubject = (params.get('subject') || '').trim();
+    if (!requestedSubject) return;
+
+    const normalizedSubject = requestedSubject.toLowerCase();
+    const matchedSubject = app.subjects.find((subject) =>
+        String(subject?.id || '').trim().toLowerCase() === normalizedSubject
+    );
+
+    if (matchedSubject) {
+        await app.selectSubject(matchedSubject.id);
     }
 });
