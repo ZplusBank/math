@@ -1660,9 +1660,9 @@ const app = {
     },
 
     getLetterGrade(percentage) {
-        if (percentage >= 97) return 'A+';
-        if (percentage >= 93) return 'A';
-        if (percentage >= 90) return 'A-';
+        if (percentage >= 97) return 'Z+';
+        if (percentage >= 93) return 'Z';
+        if (percentage >= 90) return 'Z-';
         if (percentage >= 87) return 'B+';
         if (percentage >= 83) return 'B';
         if (percentage >= 80) return 'B-';
@@ -1672,12 +1672,7 @@ const app = {
         return 'F';
     },
 
-    getDisplayGrade(letterGrade) {
-        if (letterGrade === 'A+') return 'Z+';
-        if (letterGrade === 'A') return 'Z';
-        if (letterGrade === 'A-') return 'A';
-        return letterGrade;
-    },
+
 
     _getScoreTone(percentage) {
         if (percentage >= 85) return 'success';
@@ -1706,8 +1701,7 @@ const app = {
         }
 
         const percentage = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
-        const letterGrade = this.getLetterGrade(percentage);
-        const displayGrade = this.getDisplayGrade(letterGrade);
+        const displayGrade = this.getLetterGrade(percentage);
         const scoreTone = this._getScoreTone(percentage);
 
         const resultsView = document.getElementById('resultsView');
