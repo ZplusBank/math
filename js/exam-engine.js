@@ -17,6 +17,7 @@ const app = {
     _resultImageIO: null,    // IntersectionObserver for lazy result images
     _subjectIconObserver: null, // IntersectionObserver for subject icons
     _themeToggleOriginalParent: null,
+    _examControlsPlaceholder: null,
     _controlLabelSyncBound: null,
 
     // === Toast Notification System ===
@@ -527,6 +528,31 @@ const app = {
         if (targetParent && toggle.parentElement !== targetParent) {
             targetParent.appendChild(toggle);
         }
+    },
+
+    _pinExamControlsForExam() {
+        const isPhone = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        if (!isPhone) return;
+
+        const controls = document.querySelector('.exam-controls');
+        if (!controls || controls.parentElement === document.body) return;
+
+        this._examControlsPlaceholder = document.createComment('exam-controls-placeholder');
+        controls.parentElement.insertBefore(this._examControlsPlaceholder, controls);
+        document.body.appendChild(controls);
+    },
+
+    _restoreExamControlsAfterExam() {
+        const controls = document.querySelector('.exam-controls');
+        if (!controls || !this._examControlsPlaceholder) return;
+
+        const placeholderParent = this._examControlsPlaceholder.parentNode;
+        if (placeholderParent) {
+            placeholderParent.insertBefore(controls, this._examControlsPlaceholder);
+            placeholderParent.removeChild(this._examControlsPlaceholder);
+        }
+
+        this._examControlsPlaceholder = null;
     },
 
     async loadData() {
@@ -1196,6 +1222,7 @@ const app = {
         this.hideAllViews();
         document.body.classList.add('exam-active');
         this._pinThemeToggleForExam();
+        this._pinExamControlsForExam();
         this.syncExamControlLabels();
         // Pause WebGL background animation during exam to save GPU cycles
         if (typeof window._floatingLinesPause === 'function') window._floatingLinesPause();
@@ -1968,6 +1995,7 @@ const app = {
     hideAllViews() {
         document.body.classList.remove('exam-active');
         this._restoreThemeToggleAfterExam();
+        this._restoreExamControlsAfterExam();
         // Resume WebGL background when leaving exam
         if (typeof window._floatingLinesResume === 'function') window._floatingLinesResume();
         document.querySelector('header').style.display = 'block'; // Show header by default

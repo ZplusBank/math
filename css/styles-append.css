@@ -360,7 +360,7 @@ header,
     }
 
     .exam-controls {
-        position: sticky !important;
+        position: fixed !important;
         left: 0 !important;
         right: 0 !important;
         bottom: 0 !important;
@@ -368,7 +368,7 @@ header,
         transform: none !important;
         border-radius: 0 !important;
         margin: 0 !important;
-        z-index: 999 !important;
+        z-index: 1205 !important;
         box-shadow: 0 -12px 30px rgba(15, 23, 42, 0.16);
         background: var(--bg-card);
         border-top: 1px solid var(--border-color);
@@ -551,7 +551,7 @@ header,
     }
 
     .exam-controls {
-        position: sticky !important;
+        position: fixed !important;
         left: 0 !important;
         right: 0 !important;
         bottom: 0 !important;
@@ -560,7 +560,7 @@ header,
         margin: 0 !important;
         padding-left: 8px;
         padding-right: 8px;
-        z-index: 999 !important;
+        z-index: 1205 !important;
     }
 
     .group-btns {
