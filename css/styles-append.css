@@ -365,7 +365,7 @@ header,
         right: 0 !important;
         bottom: 0 !important;
         width: 100% !important;
-        transform: none !important;
+        transform: translate3d(0, 0, 0) !important;
         border-radius: 0 !important;
         margin: 0 !important;
         z-index: 1205 !important;
@@ -373,9 +373,12 @@ header,
         background: var(--bg-card);
         border-top: 1px solid var(--border-color);
         gap: 8px;
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-left: max(8px, env(safe-area-inset-left, 0px));
+        padding-right: max(8px, env(safe-area-inset-right, 0px));
         padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+        transition: none !important;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
     }
 
     body.exam-active #themeToggle.theme-toggle {
@@ -556,11 +559,12 @@ header,
         right: 0 !important;
         bottom: 0 !important;
         width: 100% !important;
-        transform: none !important;
+        transform: translate3d(0, 0, 0) !important;
         margin: 0 !important;
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-left: max(8px, env(safe-area-inset-left, 0px));
+        padding-right: max(8px, env(safe-area-inset-right, 0px));
         z-index: 1205 !important;
+        transition: none !important;
     }
 
     .group-btns {
