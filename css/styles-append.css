@@ -185,6 +185,39 @@ header,
     overflow: hidden;
 }
 
+.subject-card .subject-icon {
+    position: relative;
+    overflow: hidden;
+}
+
+.subject-card .subject-overlay {
+    display: none;
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(2, 6, 23, 0.15), rgba(2, 6, 23, 0.72));
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+}
+
+.subject-card .subject-overlay-name {
+    display: block;
+    font-size: 0.84rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.subject-card .subject-overlay-meta {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.72rem;
+    opacity: 0.92;
+}
+
 .subject-card:active,
 .chapter-card:active,
 .action-btn:active,
@@ -315,6 +348,10 @@ header,
     .subject-card,
     .chapter-card {
         box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    .subject-card .subject-overlay-meta {
+        display: none;
     }
 
     .search-container {
@@ -534,8 +571,15 @@ header,
         right: 4px;
     }
 
+    .subjects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+        gap: 8px;
+    }
+
     .subject-card {
-        padding: 10px 10px 12px;
+        padding: 8px;
+        max-width: 198px;
+        margin: 0 auto;
     }
 
     .chapter-card {
@@ -544,13 +588,25 @@ header,
     }
 
     .subject-card .subject-icon {
-        min-height: 102px;
+        min-height: 84px;
         border-radius: 10px;
-        margin-bottom: 8px;
+        margin-bottom: 0;
+    }
+
+    .subject-card .subject-overlay {
+        display: block;
+    }
+
+    .subject-card .subject-overlay-name {
+        font-size: 0.8rem;
+    }
+
+    .subject-card .subject-overlay-meta {
+        font-size: 0.68rem;
     }
 
     .subject-card h2 {
-        font-size: 0.96rem;
+        display: none;
     }
 
     .subject-card p {
@@ -558,9 +614,7 @@ header,
     }
 
     .subject-card .chapter-count {
-        margin-top: 6px;
-        font-size: 0.72rem;
-        padding: 4px 8px;
+        display: none;
     }
 
     .question-number {

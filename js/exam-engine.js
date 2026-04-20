@@ -846,11 +846,13 @@ const app = {
         }, { passive: true, capture: true });
         const compactSubjectCards = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
         grid.innerHTML = this.subjects.map((subject, i) => {
+            const chapterCount = subject.chaptersConfig.length;
+            const subjectName = this.escapeHtml(subject.name);
             const detailsHtml = compactSubjectCards
-                ? `<span class="chapter-count"><span class="count-item"><strong>${subject.chaptersConfig.length}</strong> Chapters</span></span>`
+                ? ''
                 : `<p>${this.escapeHtml(subject.description)}</p>
                 <span class="chapter-count">
-                    <span class="count-item"><strong>${subject.chaptersConfig.length}</strong> Chapters</span>
+                    <span class="count-item"><strong>${chapterCount}</strong> Chapters</span>
                     <span class="count-sep">•</span>
                     <span class="count-item"><strong>${totalQs(subject)}</strong> Questions</span>
                 </span>`;
@@ -859,8 +861,13 @@ const app = {
                  data-name="${this.escapeHtml(subject.name)}" data-desc="${this.escapeHtml(subject.description)}"
                  data-sid="${subject.id}"
                  style="--i: ${i}">
-                <span class="subject-icon">${this.renderSubjectIcon(subject)}</span>
-                <h2>${this.escapeHtml(subject.name)}</h2>
+                <span class="subject-icon">${this.renderSubjectIcon(subject)}
+                    <span class="subject-overlay" aria-hidden="true">
+                        <span class="subject-overlay-name">${subjectName}</span>
+                        <span class="subject-overlay-meta">${chapterCount} Chapters</span>
+                    </span>
+                </span>
+                <h2>${subjectName}</h2>
                 ${detailsHtml}
             </div>
         `;
