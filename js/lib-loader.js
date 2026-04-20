@@ -6,6 +6,18 @@
 const LibLoader = {
     _loaded: {},
     _loading: {},
+    _preconnectDone: false,
+
+    _ensurePreconnect() {
+        if (this._preconnectDone || typeof document === 'undefined') return;
+        this._preconnectDone = true;
+
+        const link = document.createElement('link');
+        link.rel = 'preconnect';
+        link.href = 'https://cdn.jsdelivr.net';
+        link.crossOrigin = 'anonymous';
+        document.head.appendChild(link);
+    },
 
     /**
      * Load a single script by URL. Returns a Promise.
@@ -15,9 +27,12 @@ const LibLoader = {
         if (this._loaded[url]) return Promise.resolve();
         if (this._loading[url]) return this._loading[url];
 
+        this._ensurePreconnect();
+
         this._loading[url] = new Promise((resolve, reject) => {
             const s = document.createElement('script');
             s.src = url;
+            s.async = true;
             s.onload = () => {
                 this._loaded[url] = true;
                 delete this._loading[url];
@@ -47,20 +62,30 @@ const LibLoader = {
      */
     async loadMarkdownAndPrism() {
         if (this._loaded._markdownPrism) return;
+        if (this._loading._markdownPrism) return this._loading._markdownPrism;
 
-        // Load Marked first, then Prism core, then common language packs in parallel
-        await this.loadScript('https://cdn.jsdelivr.net/npm/marked/marked.min.js');
-        await this.loadScript('https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js');
+        const promise = (async () => {
+            // Load Marked and Prism core in parallel, then common language packs.
+            await Promise.all([
+                this.loadScript('https://cdn.jsdelivr.net/npm/marked/marked.min.js'),
+                this.loadScript('https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js')
+            ]);
 
-        // Load only the most common language packs immediately; others loaded lazily
-        await Promise.all([
-            this.loadScript('https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js'),
-            this.loadScript('https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js'),
-            this.loadScript('https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js'),
-            this.loadScript('https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.js'),
-        ]);
+            await Promise.all([
+                this.loadScript('https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js'),
+                this.loadScript('https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js'),
+                this.loadScript('https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js'),
+                this.loadScript('https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.js'),
+            ]);
 
-        this._loaded._markdownPrism = true;
+            this._loaded._markdownPrism = true;
+        })();
+
+        this._loading._markdownPrism = promise.finally(() => {
+            delete this._loading._markdownPrism;
+        });
+
+        return this._loading._markdownPrism;
     },
 
     /**
@@ -81,27 +106,41 @@ const LibLoader = {
      */
     async loadMathJax() {
         if (this._loaded._mathjax) return;
+        if (this._loading._mathjax) return this._loading._mathjax;
         if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
             this._loaded._mathjax = true;
             return;
         }
-        await this.loadScript('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js');
-        // MathJax needs a moment to initialize after script load
-        await new Promise((resolve, reject) => {
-            let elapsed = 0;
-            const check = () => {
-                if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
-                    resolve();
-                } else if (elapsed > 10000) {
-                    reject(new Error('MathJax init timeout'));
-                } else {
-                    elapsed += 100;
-                    setTimeout(check, 100);
-                }
-            };
-            check();
+        const promise = (async () => {
+            await this.loadScript('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js');
+
+            if (typeof MathJax !== 'undefined' && MathJax.startup && MathJax.startup.promise) {
+                await MathJax.startup.promise;
+            } else {
+                await new Promise((resolve, reject) => {
+                    let elapsed = 0;
+                    const check = () => {
+                        if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+                            resolve();
+                        } else if (elapsed > 10000) {
+                            reject(new Error('MathJax init timeout'));
+                        } else {
+                            elapsed += 50;
+                            setTimeout(check, 50);
+                        }
+                    };
+                    check();
+                });
+            }
+
+            this._loaded._mathjax = true;
+        })();
+
+        this._loading._mathjax = promise.finally(() => {
+            delete this._loading._mathjax;
         });
-        this._loaded._mathjax = true;
+
+        return this._loading._mathjax;
     },
 
     /**
@@ -172,8 +211,18 @@ const LibLoader = {
      */
     async loadContentLibs() {
         if (this._loaded._contentLibs) return;
-        await this.loadMarkdownAndPrism();
-        // MathJax loaded lazily on first typeset call, not here
-        this._loaded._contentLibs = true;
+        if (this._loading._contentLibs) return this._loading._contentLibs;
+
+        const promise = (async () => {
+            await this.loadMarkdownAndPrism();
+            // MathJax loaded lazily on first typeset call, not here
+            this._loaded._contentLibs = true;
+        })();
+
+        this._loading._contentLibs = promise.finally(() => {
+            delete this._loading._contentLibs;
+        });
+
+        return this._loading._contentLibs;
     }
 };

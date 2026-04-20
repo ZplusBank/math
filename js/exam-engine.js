@@ -750,19 +750,35 @@ const app = {
         const src = this.escapeHtml(subject.iconPath);
         const sid = this.escapeHtml(subject.id || '');
         const alt = this.escapeHtml(`${subject.name || 'Subject'} icon`);
-        return `<img class="subject-icon-image" data-src="${src}" alt="${alt}" loading="lazy" decoding="async" data-sid="${sid}">`;
+        return `<img class="subject-icon-image" data-src="${src}" alt="${alt}" loading="lazy" decoding="async" fetchpriority="low" data-sid="${sid}">`;
     },
 
-    _loadSubjectIconImage(img, prioritize = false) {
+    _hydrateDeferredImage(img, prioritize = false) {
         if (!img || img.dataset.loaded === '1') return;
         const src = img.getAttribute('data-src');
         if (!src) return;
+
+        img.dataset.loaded = '1';
+        img.decoding = 'async';
+
         if (prioritize) {
             img.loading = 'eager';
             img.fetchPriority = 'high';
+        } else {
+            img.loading = 'lazy';
+            if ('fetchPriority' in img) {
+                img.fetchPriority = 'low';
+            }
         }
-        img.dataset.loaded = '1';
+
         img.src = src;
+        if (typeof img.decode === 'function') {
+            img.decode().catch(() => { });
+        }
+    },
+
+    _loadSubjectIconImage(img, prioritize = false) {
+        this._hydrateDeferredImage(img, prioritize);
     },
 
     _initSubjectIconLazyLoad(grid) {
@@ -831,19 +847,22 @@ const app = {
             return subject.chaptersConfig.reduce((sum, ch) => sum + (ch.q || 0), 0);
         };
 
-        // Prefetch chapters on hover for faster navigation
-        grid.addEventListener('pointerenter', (e) => {
-            const card = e.target.closest('.subject-card');
-            if (!card) return;
-            const sid = card.getAttribute('data-sid');
-            const subject = this.subjects.find(s => s.id === sid);
-            if (subject && !subject.loaded && !subject._prefetching) {
-                subject._prefetching = true;
-                this.loadChaptersForSubject(subject).catch(() => { }).finally(() => {
-                    subject._prefetching = false;
-                });
-            }
-        }, { passive: true, capture: true });
+        // Prefetch chapters on hover for faster navigation.
+        if (!this._subjectGridPrefetchBound) {
+            grid.addEventListener('pointerenter', (e) => {
+                const card = e.target.closest('.subject-card');
+                if (!card) return;
+                const sid = card.getAttribute('data-sid');
+                const subject = this.subjects.find(s => s.id === sid);
+                if (subject && !subject.loaded && !subject._prefetching) {
+                    subject._prefetching = true;
+                    this.loadChaptersForSubject(subject).catch(() => { }).finally(() => {
+                        subject._prefetching = false;
+                    });
+                }
+            }, { passive: true, capture: true });
+            this._subjectGridPrefetchBound = true;
+        }
         const compactSubjectCards = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
         grid.innerHTML = this.subjects.map((subject, i) => {
             const chapterCount = subject.chaptersConfig.length;
@@ -1126,11 +1145,7 @@ const app = {
     },
 
     _loadDeferredImage(img) {
-        if (!img || img.dataset.loaded === '1') return;
-        const src = img.getAttribute('data-src');
-        if (!src) return;
-        img.dataset.loaded = '1';
-        img.src = src;
+        this._hydrateDeferredImage(img, false);
     },
 
     _initLazyResultImages(container) {

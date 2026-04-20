@@ -217,21 +217,29 @@ const ContentRenderer = {
      * Attach click listeners to images for lightbox using event delegation
      */
     attachImageListeners(element) {
-        const images = element.querySelectorAll('img:not(.lightbox-image):not(.content-image)');
-        if (images.length === 0) return;
+        if (!element) return;
 
+        const images = element.querySelectorAll('img:not(.lightbox-image):not(.content-image)');
         for (let i = 0; i < images.length; i++) {
             const img = images[i];
             img.classList.add('content-image');
             img.loading = 'lazy';
             img.decoding = 'async';
-            img.addEventListener('click', this._onImageClick, { passive: true });
+            if ('fetchPriority' in img) {
+                img.fetchPriority = 'low';
+            }
         }
-    },
 
-    /** Bound image click handler (avoids closure per image) */
-    _onImageClick(e) {
-        ContentRenderer._openLightbox(e.currentTarget.src, e.currentTarget.alt);
+        if (images.length === 0 && element._contentRendererImageBound) return;
+
+        if (!element._contentRendererImageBound) {
+            element.addEventListener('click', (e) => {
+                const img = e.target.closest('img.content-image:not(.lightbox-image)');
+                if (!img || !element.contains(img)) return;
+                ContentRenderer._openLightbox(img.currentSrc || img.src, img.alt);
+            }, { passive: true });
+            element._contentRendererImageBound = true;
+        }
     },
 
     /**
