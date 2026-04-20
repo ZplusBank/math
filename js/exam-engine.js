@@ -844,21 +844,27 @@ const app = {
                 });
             }
         }, { passive: true, capture: true });
-        grid.innerHTML = this.subjects.map((subject, i) => `
+        const compactSubjectCards = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        grid.innerHTML = this.subjects.map((subject, i) => {
+            const detailsHtml = compactSubjectCards
+                ? `<span class="chapter-count"><span class="count-item"><strong>${subject.chaptersConfig.length}</strong> Chapters</span></span>`
+                : `<p>${this.escapeHtml(subject.description)}</p>
+                <span class="chapter-count">
+                    <span class="count-item"><strong>${subject.chaptersConfig.length}</strong> Chapters</span>
+                    <span class="count-sep">•</span>
+                    <span class="count-item"><strong>${totalQs(subject)}</strong> Questions</span>
+                </span>`;
+            return `
             <div class="subject-card" onclick="app.selectSubject('${subject.id}')"
                  data-name="${this.escapeHtml(subject.name)}" data-desc="${this.escapeHtml(subject.description)}"
                  data-sid="${subject.id}"
                  style="--i: ${i}">
                 <span class="subject-icon">${this.renderSubjectIcon(subject)}</span>
                 <h2>${this.escapeHtml(subject.name)}</h2>
-                <p>${this.escapeHtml(subject.description)}</p>
-                <span class="chapter-count">
-                    <span class="count-item"><strong>${subject.chaptersConfig.length}</strong> Chapters</span>
-                    <span class="count-sep">•</span>
-                    <span class="count-item"><strong>${totalQs(subject)}</strong> Questions</span>
-                </span>
+                ${detailsHtml}
             </div>
-        `).join('');
+        `;
+        }).join('');
 
         // Fallback to emoji when icon image is missing/broken.
         grid.querySelectorAll('.subject-icon-image').forEach((img) => {

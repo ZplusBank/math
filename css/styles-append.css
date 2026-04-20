@@ -534,14 +534,33 @@ header,
         right: 4px;
     }
 
-    .subject-card,
+    .subject-card {
+        padding: 10px 10px 12px;
+    }
+
     .chapter-card {
         padding-left: 12px;
         padding-right: 12px;
     }
 
     .subject-card .subject-icon {
-        min-height: 148px;
+        min-height: 102px;
+        border-radius: 10px;
+        margin-bottom: 8px;
+    }
+
+    .subject-card h2 {
+        font-size: 0.96rem;
+    }
+
+    .subject-card p {
+        display: none;
+    }
+
+    .subject-card .chapter-count {
+        margin-top: 6px;
+        font-size: 0.72rem;
+        padding: 4px 8px;
     }
 
     .question-number {
@@ -565,6 +584,15 @@ header,
         padding-right: max(8px, env(safe-area-inset-right, 0px));
         z-index: 1205 !important;
         transition: none !important;
+        pointer-events: auto;
+        touch-action: manipulation;
+        isolation: isolate;
+    }
+
+    .exam-controls .group-btns,
+    .exam-controls button {
+        pointer-events: auto;
+        touch-action: manipulation;
     }
 
     .group-btns {
@@ -626,4 +654,8 @@ header,
     .content-image:hover {
         transform: none;
     }
+}
+
+#floatingLinesBg {
+    pointer-events: none !important;
 }
