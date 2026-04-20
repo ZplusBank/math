@@ -247,6 +247,8 @@ header,
 @media (max-width: 768px) {
     body {
         padding: 6px;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
     }
 
     .progress-indicator {
@@ -343,6 +345,8 @@ header,
     .subjects-grid,
     .chapters-grid {
         gap: 12px;
+        -webkit-overflow-scrolling: touch;
+        touch-action: auto;
     }
 
     .subject-card,
@@ -503,6 +507,8 @@ header,
 @media (max-width: 480px) {
     body {
         padding: 4px;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
     }
 
     header {
