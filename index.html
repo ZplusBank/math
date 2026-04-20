@@ -32,6 +32,7 @@
     <!-- Critical CSS (preloaded) -->
     <link rel="preload" href="css/exam-styles.css" as="style" fetchpriority="high">
     <link rel="stylesheet" href="css/exam-styles.css">
+    <link rel="stylesheet" href="css/styles-append.css">
 
     <!-- Google Fonts: Non-blocking, reduced weight set -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,7 +87,6 @@
                 <div class="header-text">
                     <h1><span class="logo-mark" onclick="app.handleHomeClick()" style="cursor: pointer;"
                             title="Go to Home">Z+</span> Mathematics</h1>
-                    <p>Master your skills with interactive exams</p>
                 </div>
                 <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
                     <span class="icon-sun">☀️</span>
@@ -108,7 +108,6 @@
                 <div class="search-container">
                     <input type="text" class="search-input" id="subjectSearch" placeholder="Search subjects..."
                         autocomplete="off" aria-label="Search subjects">
-                    <span class="search-icon">🔍</span>
                     <button class="search-clear" id="subjectSearchClear" style="display: none;"
                         aria-label="Clear search" onclick="app.clearSearch('subject')">✕</button>
                 </div>
@@ -130,7 +129,6 @@
                 <div class="search-container">
                     <input type="text" class="search-input" id="chapterSearch" placeholder="Search chapters..."
                         autocomplete="off" aria-label="Search chapters">
-                    <span class="search-icon">🔍</span>
                     <button class="search-clear" id="chapterSearchClear" style="display: none;"
                         aria-label="Clear search" onclick="app.clearSearch('chapter')">✕</button>
                 </div>
@@ -190,13 +188,13 @@
                     <div class="group-btns">
                         <button class="nav-btn" id="prevBtn" onclick="app.previousQuestion()" disabled
                             aria-label="Previous question">
-                            <span aria-hidden="true">←</span> Previous
+                            <span class="nav-arrow" aria-hidden="true">←</span><span class="nav-label">Previous</span>
                         </button>
                         <button class="nav-btn" id="nextBtn" onclick="app.nextQuestion()" aria-label="Next question">
-                            Next <span aria-hidden="true">→</span>
+                            <span class="nav-label">Next</span><span class="nav-arrow" aria-hidden="true">→</span>
                         </button>
+                        <button class="check-btn" id="checkBtn" onclick="app.checkAnswer()">Check Answer</button>
                     </div>
-                    <button class="check-btn" id="checkBtn" onclick="app.checkAnswer()">Check Answer</button>
                     <button class="submit-btn" id="submitBtn" onclick="app.showReviewModal()" style="display: none;">
                         📋 Review & Submit
                     </button>
@@ -251,6 +249,9 @@
     <script>
         // Defer heavy WebGL background until after first paint + idle time
         function _initFloatingLines() {
+            if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
+                return;
+            }
             var s = document.createElement('script');
             s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
             s.onload = function () {
@@ -303,6 +304,12 @@
                 }
             }, { passive: true });
         })();
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('./sw.js').catch(function () { });
+            });
+        }
     </script>
 
     <!-- General Purpose Modal -->

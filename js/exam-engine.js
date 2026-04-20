@@ -16,16 +16,24 @@ const app = {
     _resultIO: null,         // IntersectionObserver for lazy results
     _resultImageIO: null,    // IntersectionObserver for lazy result images
     _subjectIconObserver: null, // IntersectionObserver for subject icons
+    _themeToggleOriginalParent: null,
+    _controlLabelSyncBound: null,
 
     // === Toast Notification System ===
-    showToast(message, type = 'info', duration = 3000) {
+    showToast(message, type = 'info', duration = 3000, options = {}) {
         const container = document.getElementById('toastContainer');
         if (!container) return;
+        const compact = !!options.compact;
 
         const icons = { success: '✓', error: '✗', info: 'ℹ' };
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
-        toast.innerHTML = `<span class="toast-icon">${icons[type] || icons.info}</span><span>${message}</span>`;
+        if (compact) {
+            toast.classList.add('toast-compact');
+            toast.innerHTML = `<span class="toast-icon">${icons[type] || icons.info}</span>`;
+        } else {
+            toast.innerHTML = `<span class="toast-icon">${icons[type] || icons.info}</span><span>${message}</span>`;
+        }
         container.appendChild(toast);
 
         setTimeout(() => {
@@ -201,6 +209,9 @@ const app = {
 
     async init() {
         this.initTheme();
+        this._controlLabelSyncBound = () => this.syncExamControlLabels();
+        window.addEventListener('resize', this._controlLabelSyncBound, { passive: true });
+        this.syncExamControlLabels();
         this.initKeyboardShortcuts();
         this.initModalHandlers();
         this.initScrollToTop();
@@ -480,6 +491,42 @@ const app = {
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
         });
+    },
+
+    syncExamControlLabels() {
+        const isPhone = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        const checkBtn = document.getElementById('checkBtn');
+        if (checkBtn) {
+            checkBtn.textContent = isPhone ? 'Check' : 'Check Answer';
+        }
+    },
+
+    _pinThemeToggleForExam() {
+        const isPhone = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        if (!isPhone) return;
+
+        const toggle = document.getElementById('themeToggle');
+        if (!toggle) return;
+
+        if (!this._themeToggleOriginalParent) {
+            this._themeToggleOriginalParent = toggle.parentElement;
+        }
+
+        if (toggle.parentElement !== document.body) {
+            document.body.appendChild(toggle);
+        }
+    },
+
+    _restoreThemeToggleAfterExam() {
+        const toggle = document.getElementById('themeToggle');
+        if (!toggle) return;
+
+        const fallbackParent = document.querySelector('header .header-content');
+        const targetParent = this._themeToggleOriginalParent || fallbackParent;
+
+        if (targetParent && toggle.parentElement !== targetParent) {
+            targetParent.appendChild(toggle);
+        }
     },
 
     async loadData() {
@@ -1148,6 +1195,8 @@ const app = {
         this.currentView = 'exam';
         this.hideAllViews();
         document.body.classList.add('exam-active');
+        this._pinThemeToggleForExam();
+        this.syncExamControlLabels();
         // Pause WebGL background animation during exam to save GPU cycles
         if (typeof window._floatingLinesPause === 'function') window._floatingLinesPause();
         document.querySelector('header').style.display = 'none'; // Hide header
@@ -1336,8 +1385,9 @@ const app = {
 
         prevBtn.disabled = idx === 0;
         nextBtn.disabled = false;
-        checkBtn.style.display = 'block';
+        checkBtn.style.display = this.checkedAnswers[idx] ? 'none' : 'block';
         submitBtn.style.display = isLastQuestion ? 'block' : 'none';
+        this.syncExamControlLabels();
 
         // Clear feedback
         feedbackEl.className = 'feedback';
@@ -1407,14 +1457,23 @@ const app = {
         this.updateQuestionNumberStyles();
         this.showFeedback(idx, status);
 
-        // Toast feedback 
-        this.showToast(
-            status === 'correct'
-                ? 'Correct! Well done!'
-                : (status === 'wrong' ? 'Incorrect. Check the explanation below.' : 'Skipped. Review the answer below.'),
-            status === 'correct' ? 'success' : (status === 'wrong' ? 'error' : 'info'),
-            2500
-        );
+        const checkBtn = document.getElementById('checkBtn');
+        if (checkBtn) checkBtn.style.display = 'none';
+
+        // Toast feedback (compact symbols on phones)
+        const toastType = status === 'correct' ? 'success' : (status === 'wrong' ? 'error' : 'info');
+        const isPhone = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        if (isPhone) {
+            this.showToast('', toastType, 900, { compact: true });
+        } else {
+            this.showToast(
+                status === 'correct'
+                    ? 'Correct! Well done!'
+                    : (status === 'wrong' ? 'Incorrect. Check the explanation below.' : 'Skipped. Review the answer below.'),
+                toastType,
+                2500
+            );
+        }
     },
 
     /** Determine the status for a checked question */
@@ -1908,6 +1967,7 @@ const app = {
 
     hideAllViews() {
         document.body.classList.remove('exam-active');
+        this._restoreThemeToggleAfterExam();
         // Resume WebGL background when leaving exam
         if (typeof window._floatingLinesResume === 'function') window._floatingLinesResume();
         document.querySelector('header').style.display = 'block'; // Show header by default
