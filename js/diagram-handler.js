@@ -19,6 +19,7 @@ const DiagramHandler = {
         database: ['mermaid'],
         algorithm: ['mermaid']
     },
+    _viewBoxPrecision: 2,
 
     init() {
         if (this._initialized) return;
@@ -79,6 +80,105 @@ const DiagramHandler = {
         this.registerLanguageAlias(['uml', 'classdiagram', 'nomnoml'], 'nomnoml');
 
         this._initialized = true;
+    },
+
+    _raf() {
+        return new Promise(resolve => requestAnimationFrame(() => resolve()));
+    },
+
+    async _waitForRenderStability() {
+        if (document.fonts && document.fonts.ready) {
+            try {
+                await document.fonts.ready;
+            } catch (_) {
+                // Ignore font loading errors and continue with available metrics.
+            }
+        }
+
+        await this._raf();
+        await this._raf();
+    },
+
+    _roundMetric(value) {
+        if (!Number.isFinite(value)) return 0;
+        const precision = this._viewBoxPrecision;
+        const factor = Math.pow(10, precision);
+        return Math.round(value * factor) / factor;
+    },
+
+    _parseViewBox(svgEl) {
+        const raw = String(svgEl.getAttribute('viewBox') || '').trim();
+        if (!raw) return null;
+
+        const parts = raw.split(/[\s,]+/).map(Number);
+        if (parts.length !== 4 || parts.some(n => !Number.isFinite(n))) return null;
+
+        return {
+            minX: parts[0],
+            minY: parts[1],
+            width: parts[2],
+            height: parts[3]
+        };
+    },
+
+    _getSvgBounds(svgEl) {
+        if (!svgEl) return null;
+
+        try {
+            if (typeof svgEl.getBBox === 'function') {
+                const box = svgEl.getBBox();
+                if (box && Number.isFinite(box.x) && Number.isFinite(box.y) && Number.isFinite(box.width) && Number.isFinite(box.height) && box.width > 0 && box.height > 0) {
+                    return {
+                        minX: box.x,
+                        minY: box.y,
+                        width: box.width,
+                        height: box.height
+                    };
+                }
+            }
+        } catch (_) {
+            // Some browsers throw when SVG layout is not fully ready yet.
+        }
+
+        const current = this._parseViewBox(svgEl);
+        if (current) return current;
+
+        const width = parseFloat(svgEl.getAttribute('width'));
+        const height = parseFloat(svgEl.getAttribute('height'));
+        if (Number.isFinite(width) && Number.isFinite(height) && width > 0 && height > 0) {
+            return { minX: 0, minY: 0, width, height };
+        }
+
+        return null;
+    },
+
+    _normalizeSvgViewBox(svgEl) {
+        if (!svgEl) return;
+        const normalized = this._getSvgBounds(svgEl);
+        if (!normalized) return;
+
+        const dpr = window.devicePixelRatio || 1;
+        const pad = dpr > 1.25 ? 2 : 3;
+
+        const minX = this._roundMetric(normalized.minX - pad);
+        const minY = this._roundMetric(normalized.minY - pad);
+        const width = this._roundMetric(Math.max(1, normalized.width + pad * 2));
+        const height = this._roundMetric(Math.max(1, normalized.height + pad * 2));
+
+        svgEl.setAttribute('viewBox', `${minX} ${minY} ${width} ${height}`);
+
+        const widthAttr = String(svgEl.getAttribute('width') || '').trim();
+        if (!widthAttr || /^\d+(\.\d+)?(px)?$/i.test(widthAttr)) {
+            svgEl.setAttribute('width', '100%');
+        }
+
+        const heightAttr = String(svgEl.getAttribute('height') || '').trim();
+        if (!heightAttr || /^\d+(\.\d+)?(px)?$/i.test(heightAttr)) {
+            svgEl.removeAttribute('height');
+        }
+
+        svgEl.setAttribute('preserveAspectRatio', svgEl.getAttribute('preserveAspectRatio') || 'xMidYMid meet');
+        svgEl.setAttribute('overflow', 'visible');
     },
 
     registerEngine(engineName, handlers) {
@@ -191,6 +291,13 @@ const DiagramHandler = {
         try {
             await engine.load();
             await engine.render(candidate.code, mount);
+            await this._waitForRenderStability();
+
+            const svg = mount.querySelector('svg');
+            if (svg) {
+                this._normalizeSvgViewBox(svg);
+            }
+
             wrapper.dataset.diagramEnhanced = '1';
             wrapper.classList.add('diagram-enhanced');
             return true;
